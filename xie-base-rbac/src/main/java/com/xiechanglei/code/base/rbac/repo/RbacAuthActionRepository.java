@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface RbacAuthActionRepository extends JpaRepository<RbacAuthAction, String> {
     @Query("select ac.actionCode from RbacAuthAction ac ,RbacAuthRoleRef ref ,RbacAuthMenu menu,RbacAuthUserRole ur " +
-            "where ref.authType=0 " +
+            "where ref.authType='menu' " +
             "and ref.menuId = menu.id " +
             "and menu.id = ac.menuId " +
             "and ref.roleId = ur.roleId " +
@@ -17,7 +17,7 @@ public interface RbacAuthActionRepository extends JpaRepository<RbacAuthAction, 
     List<String> findActionCodeByRoleMenuAction(String userId, List<String> actionCodes);
 
     @Query("select ac.actionCode from RbacAuthAction ac ,RbacAuthRoleRef ref ,RbacAuthUserRole ur " +
-            "where ref.authType=1 " +
+            "where ref.authType='action' " +
             "and ref.actionId = ac.id " +
             "and ref.roleId = ur.roleId " +
             "and ur.userId = ?1 " +

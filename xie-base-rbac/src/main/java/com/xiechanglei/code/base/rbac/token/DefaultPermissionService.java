@@ -3,6 +3,7 @@ package com.xiechanglei.code.base.rbac.token;
 import com.xiechanglei.code.base.rbac.properties.RbacConfigProperties;
 import com.xiechanglei.code.base.rbac.repo.RbacAuthActionRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -12,6 +13,7 @@ import java.util.Objects;
 
 @Component
 @RequiredArgsConstructor
+@ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "enable", havingValue = "true")
 public class DefaultPermissionService {
     private final RbacAuthActionRepository getRbacAuthActionRepository;
 

@@ -1,6 +1,8 @@
 package com.xiechanglei.code.base.rbac.token;
 
+import com.xiechanglei.code.base.rbac.properties.RbacConfigProperties;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -15,9 +17,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Component
 @RequiredArgsConstructor
+@ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "enable", havingValue = "true")
 public class TokenInterceptor implements HandlerInterceptor, WebMvcConfigurer {
-    public static final String REQUEST_KEY = "auth-token";// 请求头中的key
-    public static final String REQUEST_ATTR_TOKEN_KEY = "XIE_AUTH_TOKEN_INFO";// 存放在request中的token信息的key
+    private final RbacConfigProperties rbacConfigProperties;
+    public static final String REQUEST_ATTR_TOKEN_KEY = "BASE_AUTH_TOKEN_INFO";// 存放在request中的token信息的key
 
     /**
      * 从请求头中获取token，解析token，获取用户信息，将用户信息放入上下文
@@ -30,6 +33,7 @@ public class TokenInterceptor implements HandlerInterceptor, WebMvcConfigurer {
     }
 
     public String getTokenStrFromRequest(HttpServletRequest request) {
+        String REQUEST_KEY = rbacConfigProperties.getTokenname();
         String authTokenStr = request.getParameter(REQUEST_KEY);
         if (!StringUtils.hasText(authTokenStr)) {
             authTokenStr = request.getHeader(REQUEST_KEY);
@@ -47,9 +51,10 @@ public class TokenInterceptor implements HandlerInterceptor, WebMvcConfigurer {
         }
         return authTokenStr;
     }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(this).addPathPatterns("/**");
+        registry.addInterceptor(this).addPathPatterns(rbacConfigProperties.getPath());
     }
 
 }
