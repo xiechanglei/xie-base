@@ -17,11 +17,11 @@ import java.util.Date;
 @Setter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public abstract class SnowFlakeIdAndTimeFieldEntity {
+public abstract class SnowFlakeIdAndTimeFieldEntity implements BaseEntity{
     @Id
     @GenericGenerator(name = "snowFlakeIdGenerator", strategy = "com.xiechanglei.code.base.common.jpa.generator.SnowFlakeIdGenerator")
     @GeneratedValue(generator = "snowFlakeIdGenerator")
-    @Column(name = "id", length = 38, columnDefinition = "varchar(38) comment '物理主键'")
+    @Column(length = 38, columnDefinition = "varchar(38) comment '物理主键'")
     public String id;
 
     /**

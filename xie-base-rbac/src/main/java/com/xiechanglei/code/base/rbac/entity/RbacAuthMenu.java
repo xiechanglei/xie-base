@@ -1,11 +1,13 @@
 package com.xiechanglei.code.base.rbac.entity;
 
-import com.xiechanglei.code.base.common.jpa.entity.UUIDIdEntity;
+import com.xiechanglei.code.base.common.jpa.entity.BaseEntity;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -15,7 +17,11 @@ import javax.persistence.Table;
 @Setter
 @Entity
 @Table(name = "rbac_auth_menu")
-public class RbacAuthMenu extends UUIDIdEntity {
+@NoArgsConstructor
+public class RbacAuthMenu implements BaseEntity {
+    @Id
+    @Column(length = 100, columnDefinition = "varchar(100) comment '物理主键'")
+    private String id;
     @Column(length = 100, columnDefinition = "varchar(200) comment '菜单名称'")
     private String menuName;
     @Column(length = 100, columnDefinition = "varchar(200) comment '菜单图标'")
@@ -28,6 +34,16 @@ public class RbacAuthMenu extends UUIDIdEntity {
     private Integer orderNumber; //菜单排序号码
     @Column(length = 32, columnDefinition = "varchar(32) comment '父菜单id'")
     private String parentId; //父菜单id
-    @Column(length = 1, columnDefinition = "int(1) comment '是否启用'")
-    private  Boolean enable;
+    @Column(length = 1, nullable = false, columnDefinition = "int(1) comment '是否启用'")
+    private Boolean enable;
+
+    public static final Integer MENU_TYPE_FOLDER = 0;
+    public static final Integer MENU_TYPE_PAGE = 1;
+
+    public RbacAuthMenu(String id, String menuName, Integer menuType) {
+        this.setId(id);
+        this.setMenuName(menuName);
+        this.setMenuType(menuType);
+        this.setEnable(true);
+    }
 }

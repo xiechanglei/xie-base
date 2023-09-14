@@ -20,7 +20,7 @@ import javax.persistence.Table;
         @Index(name = "role_id_unique", columnList = "roleId"),
         @Index(name = "role_id_unique", columnList = "userId")
 })
-public class RbacAuthUserRole extends UUIDIdEntity {
+public class RbacAuthUserRole extends UUIDIdEntity  {
     @Column(length = 32, nullable = false, columnDefinition = "varchar(32) comment '用户ID'")
     private String userId;
     @Column(length = 32, nullable = false, columnDefinition = "varchar(32) comment '角色ID'")

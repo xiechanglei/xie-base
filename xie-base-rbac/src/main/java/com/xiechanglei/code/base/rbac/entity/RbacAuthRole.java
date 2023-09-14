@@ -17,7 +17,7 @@ import javax.persistence.*;
 @Table(name = "rbac_auth_role", indexes = {
         @Index(name = "role_name_unique", unique = true, columnList = "roleName")
 })
-public class RbacAuthRole extends UUIDIdAndTimeFieldEntity {
+public class RbacAuthRole extends UUIDIdAndTimeFieldEntity  {
     @Column(length = 100, nullable = false, columnDefinition = "varchar(200) comment '角色名称，唯一'")
     private String roleName;//角色名称，唯一
 

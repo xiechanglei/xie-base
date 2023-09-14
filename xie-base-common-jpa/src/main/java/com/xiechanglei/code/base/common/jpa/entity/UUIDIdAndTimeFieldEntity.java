@@ -17,11 +17,11 @@ import java.util.Date;
 @Setter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class UUIDIdAndTimeFieldEntity {
+public class UUIDIdAndTimeFieldEntity implements BaseEntity{
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "com.xiechanglei.code.base.common.jpa.generator.MyUUIDGenerator")
-    @Column(name = "id", length = 32, columnDefinition = "varchar(32) comment '物理主键'")
+    @Column(length = 32, columnDefinition = "varchar(32) comment '物理主键'")
     private String id;
 
     /**

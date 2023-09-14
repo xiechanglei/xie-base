@@ -2,11 +2,12 @@ package com.xiechanglei.code.base.rbac.repo;
 
 import com.xiechanglei.code.base.rbac.entity.RbacAuthAction;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface RbacAuthActionRepository extends JpaRepository<RbacAuthAction, String> {
+public interface RbacAuthActionRepository extends JpaRepository<RbacAuthAction, String>,JpaSpecificationExecutor<RbacAuthAction> {
     @Query("select ac.actionCode from RbacAuthAction ac ,RbacAuthRoleRef ref ,RbacAuthMenu menu,RbacAuthUserRole ur,RbacAuthRole  r " +
             "where ref.authType='menu' " +
             "and ref.menuId = menu.id " +
@@ -18,7 +19,7 @@ public interface RbacAuthActionRepository extends JpaRepository<RbacAuthAction, 
 
     @Query("select ac.actionCode from RbacAuthAction ac ,RbacAuthRoleRef ref ,RbacAuthMenu menu,RbacAuthUserRole ur,RbacAuthRole  r " +
             "where ref.authType='action' " +
-            "and ref.actionId = ac.id " +
+            "and ref.actionId = ac.actionCode " +
             "and ac.menuId = menu.id and menu.enable = true " +
             "and ref.roleId = ur.roleId and ur.roleId = r.id and r.enable = true " +
             "and ur.userId = ?1 " +

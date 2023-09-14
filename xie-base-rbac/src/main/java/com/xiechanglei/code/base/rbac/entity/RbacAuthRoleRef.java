@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Table(name = "rbac_auth_role_ref")
-public class RbacAuthRoleRef extends UUIDIdEntity {
+public class RbacAuthRoleRef extends UUIDIdEntity  {
     @Column(length = 32, nullable = false, columnDefinition = "varchar(32) comment '角色id'")
     private String roleId;
     @Column(length = 10, nullable = false, columnDefinition = "varchar(10) comment '权限类型，0 表示菜单权限，1表示操作权限，菜单授权模式下，该菜单下的所有操作都有权限，操作授权模式下，仅仅授权菜单'")

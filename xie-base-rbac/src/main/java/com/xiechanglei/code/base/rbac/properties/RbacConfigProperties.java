@@ -18,6 +18,7 @@ public class RbacConfigProperties {
     private String path = "/**";//拦截的路径，默认为/**
     private String tokenname = "auth-token";//从header，param，cookie中存放token的key， 默认为auth-token
     private boolean enable = false;//是否禁用rbac权限模块
+    private boolean auto = true;//是否自动维护权限数据
 
 
     @PostConstruct
@@ -27,6 +28,7 @@ public class RbacConfigProperties {
             log.info("rbac auth: 权限细分级别为:{}", getLevel());
             log.info("rbac auth: 拦截的路径为:{}", getPath());
             log.info("rbac auth: 存放token的key为:{}", getTokenname());
+            log.info("rbac auth: 是否自动维护权限数据:{}", isAuto());
         }
     }
 }

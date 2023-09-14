@@ -13,6 +13,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface RbacAuth {
+
     String[] value(); //一个或者多个权限操作码
 
     String title() default ""; //日志标题，当设置此值的时候，会记录用户的操作日志
