@@ -28,4 +28,6 @@ public class RbacAuthMenu extends UUIDIdEntity {
     private Integer orderNumber; //菜单排序号码
     @Column(length = 32, columnDefinition = "varchar(32) comment '父菜单id'")
     private String parentId; //父菜单id
+    @Column(length = 1, columnDefinition = "int(1) comment '是否启用'")
+    private  Boolean enable;
 }
