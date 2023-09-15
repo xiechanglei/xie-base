@@ -34,11 +34,15 @@ public class DateTypeResolver implements HandlerMethodArgumentResolver {
         if (!StringUtils.hasText(dateStr)) {
             return null;
         }
-        if (dateStr.length() > 10) {
-            return Date.from(LocalDateTime.parse(dateStr, dateFormat).atZone(zoneId).toInstant());
+        if (dateStr.contains("-")) {
+            if (dateStr.length() > 10) {
+                return Date.from(LocalDateTime.parse(dateStr, dateFormat).atZone(zoneId).toInstant());
+            } else {
+                return Date.from(LocalDate.parse(dateStr, shortDateFormat).atStartOfDay(zoneId).toInstant());
+            }
         } else {
-            return Date.from(LocalDate.parse(dateStr, shortDateFormat).atStartOfDay(zoneId).toInstant());
+            return new Date(Long.parseLong(dateStr));
         }
-
     }
+
 }

@@ -2,6 +2,7 @@ package com.xiechanglei.code.base.web;
 
 import com.xiechanglei.code.base.web.resolver.DateTypeResolver;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -12,6 +13,7 @@ import java.util.List;
  * 常规配置
  */
 @Configuration
+@PropertySource("classpath:xie.base.web.properties")
 public class XieBaseWebMvcConfig implements WebMvcConfigurer {
 
     @Override
@@ -26,5 +28,4 @@ public class XieBaseWebMvcConfig implements WebMvcConfigurer {
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
         resolvers.add(new DateTypeResolver());
     }
-
 }
