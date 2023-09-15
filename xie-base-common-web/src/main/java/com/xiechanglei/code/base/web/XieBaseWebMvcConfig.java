@@ -2,8 +2,6 @@ package com.xiechanglei.code.base.web;
 
 import com.xiechanglei.code.base.web.resolver.DateTypeResolver;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.format.FormatterRegistry;
-import org.springframework.format.datetime.DateFormatter;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -25,13 +23,8 @@ public class XieBaseWebMvcConfig implements WebMvcConfigurer {
     }
 
     @Override
-    public void addFormatters(FormatterRegistry registry) {
-        //添加时间格式化为long类型
-        registry.addFormatter(new DateFormatter("yyyy-MM-dd HH:mm:ss"));
-    }
-
-    @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
         resolvers.add(new DateTypeResolver());
     }
+
 }
