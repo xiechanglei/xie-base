@@ -14,6 +14,7 @@
         <module>xie-base-common-reflect</module>
         <module>xie-base-rbac</module>
         <module>xie-base-common-web</module>
+        <module>xie-base-common-bean</module>
     </modules>
 
     <properties>

@@ -20,6 +20,16 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>com.xiechanglei.code</groupId>
+            <artifactId>xie-base-common-bean</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xiechanglei.code</groupId>
+            <artifactId>xie-base-common-digest</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
     <build>

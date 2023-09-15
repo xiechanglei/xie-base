@@ -23,4 +23,14 @@ public class RoleController {
     public Object listAllRole() {
         return internalControllerMessageBuilder.success(rbacAuthRoleRepository.findAll());
     }
+
+    //添加角色
+
+    //修改角色
+
+    //禁用角色
+
+    //TODO 获取角色的权限列表
+
+    //TODO 修改角色的权限列表
 }
