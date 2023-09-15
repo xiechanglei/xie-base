@@ -1,6 +1,8 @@
-package com.xiechanglei.code.base.web;
+package com.xiechanglei.code.base.web.config;
 
 import com.xiechanglei.code.base.web.resolver.DateTypeResolver;
+import com.xiechanglei.code.base.web.resolver.PageTypeResolver;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -14,8 +16,10 @@ import java.util.List;
  */
 @Configuration
 @PropertySource("classpath:xie.base.web.properties")
+@RequiredArgsConstructor
 public class XieBaseWebMvcConfig implements WebMvcConfigurer {
-
+    private final DateTypeResolver dateTypeResolver;
+    private final PageTypeResolver pageTypeResolver;
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
@@ -26,6 +30,7 @@ public class XieBaseWebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-        resolvers.add(new DateTypeResolver());
+        resolvers.add(dateTypeResolver);
+        resolvers.add(pageTypeResolver);
     }
 }

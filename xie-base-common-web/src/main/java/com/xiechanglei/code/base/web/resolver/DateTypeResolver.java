@@ -1,6 +1,7 @@
 package com.xiechanglei.code.base.web.resolver;
 
 import org.springframework.core.MethodParameter;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
@@ -16,6 +17,8 @@ import java.util.Date;
 /**
  * 解析网页端传递的时间参数，格式为yyyy-MM-dd HH:mm:ss 或者 yyyy-MM-dd
  */
+
+@Component
 public class DateTypeResolver implements HandlerMethodArgumentResolver {
     private static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private static final DateTimeFormatter shortDateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
