@@ -1,0 +1,103 @@
+package com.xiechanglei.code.base.common.http;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.xiechanglei.code.base.common.json.JsonTool;
+import lombok.Getter;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * http 数据传输对象
+ */
+public class HttpDataTransfer {
+    @Getter
+    private final Map<String, String> headers = new HashMap<>();
+    @Getter
+    private final Map<String, String> params = new HashMap<>();
+    @Getter
+    private final Map<String, String> cookies = new HashMap<>();
+    @Getter
+    private String body;
+
+    //header
+    public HttpDataTransfer header(String key, Object value) {
+        if (value != null) {
+            headers.put(key, value.toString());
+        } else {
+            headers.remove(key);
+        }
+        return this;
+    }
+
+    public HttpDataTransfer contentType(String contentType) {
+        header("Content-Type", contentType);
+        return this;
+    }
+
+    //cookie
+    public HttpDataTransfer cookie(String key, Object value) {
+        if (value != null) {
+            cookies.put(key, value.toString());
+        } else {
+            cookies.remove(key);
+        }
+        return this;
+    }
+    public HttpDataTransfer cookie(Map<String, String> cookies) {
+        if (cookies != null) {
+            this.cookies.putAll(cookies);
+        }
+        return this;
+    }
+    public HttpDataTransfer cookie(String cookieStr){
+        if (cookieStr != null) {
+            String[] split = cookieStr.split(";");
+            for (String s : split) {
+                String[] kv = s.split("=");
+                if (kv.length == 2) {
+                    cookie(kv[0], kv[1]);
+                }
+            }
+        }
+        return this;
+    }
+
+    //data
+    public HttpDataTransfer param(String key, Object value) {
+        if (value != null) {
+            params.put(key, value.toString());
+        } else {
+            params.remove(key);
+        }
+        return contentType(HttpContentType.FORM);
+    }
+
+    //body request
+    public HttpDataTransfer body(String body) {
+        this.body = body;
+        return this;
+    }
+
+    //json request
+    public boolean isJson() {
+        String s = headers.get("Content-Type");
+        return s != null && s.toLowerCase().startsWith(HttpContentType.JSON);
+    }
+
+    public HttpDataTransfer json(Object data) {
+        if (data != null) {
+            try {
+                String json = JsonTool.toJson(data);
+            } catch (JsonProcessingException ignored) {
+            }
+        }
+        return contentType(HttpContentType.JSON);
+    }
+
+
+    public interface HttpDataTransferProvider {
+        void opera(HttpDataTransfer httpDataTransfer);
+    }
+
+}

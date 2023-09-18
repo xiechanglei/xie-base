@@ -16,6 +16,7 @@
         <module>xie-base-common-web</module>
         <module>xie-base-common-bean</module>
         <module>xie-base-common-http</module>
+        <module>xie-base-common-json</module>
     </modules>
 
     <properties>
