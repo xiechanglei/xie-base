@@ -1,0 +1,13 @@
+{
+  "name": "create-xie-base",
+  "version": "1.0.0",
+  "description": "some base code for project",
+  "main": "index.js",
+  "bin": {
+    "create-xie-base": "./bin/create-xie-base.js"
+  },
+  "type": "module",
+  "repository": "https://github.com/xiechanglei/xie-base.git",
+  "author": "xiechanglei <709955748@qq.com>",
+  "license": "MIT"
+}
