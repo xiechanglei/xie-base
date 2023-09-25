@@ -15,6 +15,7 @@ public class HttpResponse extends JsonParser {
 
     private final Connection.Response response;
     private boolean hasRead = false;
+    private Document document;
 
     public HttpResponse(Connection.Response response) {
         this.response = response;
@@ -36,7 +37,10 @@ public class HttpResponse extends JsonParser {
     //dom
     public Document parse() throws IOException {
         hasRead = true;
-        return response.parse();
+        if(document == null){
+            document = response.parse();
+        }
+        return document;
     }
 
     public Elements select(String query) throws IOException {
