@@ -22,7 +22,7 @@
 
 数据填充类，用于生成一些动态的数据对象，通常用于controller中的动态返回对象，或者是测试数据的生成等等。
 
-```
+```java
 // 生成一个动态的数据对象
  DataFit dataFit = new DataFit().of("name", "张三").fit("age", 18);
 // 支持转换url参数
@@ -35,7 +35,7 @@
 
 通常情况下，我们为ajax返回的json对象，指定了三个字段，success，message，data，分别表示是否成功，消息，数据。
 
-```
+```java
 // 生成一个消息响应对象,覆盖绝大部分场景
  MessageResponse.success("data");
 // 支持增加提示信息，极少情况下使用
