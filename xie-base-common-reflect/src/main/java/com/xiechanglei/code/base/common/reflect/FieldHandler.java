@@ -12,7 +12,7 @@ public class FieldHandler {
         return false;
     }
 
-    public static <T> Object getFiledValueByAnnotation(Object obj, Class annotationClass) {
+    public static Object getFiledValueByAnnotation(Object obj, Class annotationClass) {
         Field[] declaredFields = obj.getClass().getDeclaredFields();
         for (Field declaredField : declaredFields) {
             if ( declaredField.getAnnotation(annotationClass) != null) {
