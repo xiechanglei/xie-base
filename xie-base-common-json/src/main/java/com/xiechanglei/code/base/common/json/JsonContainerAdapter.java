@@ -5,13 +5,9 @@ import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Map;
-
 @RequiredArgsConstructor
-public abstract class JsonParser {
+public abstract class JsonContainerAdapter implements JsonContainer {
     private DocumentContext documentContext;
-
-    public abstract String body();
 
 
     /**
@@ -23,20 +19,6 @@ public abstract class JsonParser {
             this.documentContext = JsonPath.parse(body());
         }
         return documentContext.read(path, clazz);
-    }
-
-    /**
-     * toMap
-     */
-    public Map readJson() {
-        return this.readJson("$", Map.class);
-    }
-
-    /**
-     * to Object
-     */
-    public <T> T readJson(Class<T> clazz) {
-        return this.readJson("$", clazz);
     }
 
 }

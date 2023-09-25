@@ -30,7 +30,7 @@ public interface BaseEntity {
     }
 
     /**
-     * 从数据库中获取旧的对象，并且fork到自己身上，可以完成更新的功能
+     * 从数据库中获取旧的对象，并且fork到自己身上，可以完成更新的功能，并不保存，需要自行调用保存代码
      */
     default BaseEntity fork(JpaRepository<? extends BaseEntity, Object> repo) throws ForkNotExistsException {
         Object id = FieldHandler.getFiledValueByAnnotation(this, Id.class);

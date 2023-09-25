@@ -1,7 +1,7 @@
 package com.xiechanglei.code.base.common.http;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.xiechanglei.code.base.common.json.JsonTool;
+import com.xiechanglei.code.base.common.json.JsonHelper;
 import lombok.Getter;
 
 import java.util.HashMap;
@@ -88,7 +88,7 @@ public class HttpDataTransfer {
     public HttpDataTransfer json(Object data) {
         if (data != null) {
             try {
-                String json = JsonTool.toJson(data);
+                String json = JsonHelper.toJson(data);
             } catch (JsonProcessingException ignored) {
             }
         }

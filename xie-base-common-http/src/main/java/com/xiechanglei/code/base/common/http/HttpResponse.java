@@ -1,6 +1,6 @@
 package com.xiechanglei.code.base.common.http;
 
-import com.xiechanglei.code.base.common.json.JsonParser;
+import com.xiechanglei.code.base.common.json.JsonContainerAdapter;
 import org.jsoup.Connection;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
 
-public class HttpResponse extends JsonParser {
+public class HttpResponse extends JsonContainerAdapter {
 
     private final Connection.Response response;
     private boolean hasRead = false;

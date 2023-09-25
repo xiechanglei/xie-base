@@ -3,7 +3,7 @@ package com.xiechanglei.code.base.common.json;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class TextJsonParser extends JsonParser {
+public class TextJsonContainer extends JsonContainerAdapter {
     private final String body;
 
     public String body() {
