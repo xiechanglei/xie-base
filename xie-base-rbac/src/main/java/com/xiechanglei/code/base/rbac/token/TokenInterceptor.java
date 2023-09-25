@@ -54,7 +54,7 @@ public class TokenInterceptor implements HandlerInterceptor, WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(this).addPathPatterns(rbacConfigProperties.getPath());
+        registry.addInterceptor(this).addPathPatterns("/**");
     }
 
 }

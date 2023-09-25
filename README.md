@@ -31,5 +31,5 @@ yarn create xie-base
 - [x] [xie-base-common-jpa](./xie-base-common-jpa/README.md)
 - [x] [xie-base-common-json](./xie-base-common-json/README.md)
 - [x] [xie-base-common-reflect](./xie-base-common-reflect/README.md)
-- [x] [xie-base-common-web](./xie-base-common-web/README.md)
+- [x] [xie-base-web](./xie-base-web/README.md)
 - [x] [xie-base-rbac](./xie-base-rbac/README.md)

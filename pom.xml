@@ -13,7 +13,7 @@
         <module>xie-base-common-jpa</module>
         <module>xie-base-common-reflect</module>
         <module>xie-base-rbac</module>
-        <module>xie-base-common-web</module>
+        <module>xie-base-web</module>
         <module>xie-base-common-bean</module>
         <module>xie-base-common-http</module>
         <module>xie-base-common-json</module>

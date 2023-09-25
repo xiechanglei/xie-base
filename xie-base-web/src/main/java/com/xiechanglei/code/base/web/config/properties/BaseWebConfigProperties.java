@@ -10,4 +10,7 @@ import org.springframework.stereotype.Component;
 public class BaseWebConfigProperties {
     private int size = 20;
     private int page = 1;
+    private String readDateType = "pattern"; // pattern, timestamp
+    public static  final String READ_DATE_TYPE_PATTERN = "pattern";
+    public static  final String READ_DATE_TYPE_TIMESTAMP = "timestamp";
 }

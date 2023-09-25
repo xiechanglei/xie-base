@@ -19,7 +19,7 @@ import java.util.Date;
  */
 
 @Component
-public class DateTypeResolver implements HandlerMethodArgumentResolver {
+public class TImeStamp2DateResolver implements HandlerMethodArgumentResolver {
     private static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private static final DateTimeFormatter shortDateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     //gmt+8

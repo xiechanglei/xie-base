@@ -2,7 +2,7 @@ package com.xiechanglei.code.base.common.jpa.entity;
 
 import com.xiechanglei.code.base.common.jpa.annotation.NoOverwrite;
 import com.xiechanglei.code.base.common.jpa.exception.ForkNotExistsException;
-import com.xiechanglei.code.base.common.reflect.FieldHandler;
+import com.xiechanglei.code.base.common.reflect.FieldHelper;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,7 +18,7 @@ public interface BaseEntity {
     default BaseEntity pure() {
         Field[] fields = this.getClass().getDeclaredFields();
         for (Field field : fields) {
-            if (FieldHandler.hasAnnotation(field, Id.class, LastModifiedDate.class, CreatedDate.class)) {
+            if (FieldHelper.hasAnnotation(field, Id.class, LastModifiedDate.class, CreatedDate.class)) {
                 field.setAccessible(true);
                 try {
                     field.set(this, null);
@@ -33,7 +33,7 @@ public interface BaseEntity {
      * 从数据库中获取旧的对象，并且fork到自己身上，可以完成更新的功能，并不保存，需要自行调用保存代码
      */
     default BaseEntity fork(JpaRepository<? extends BaseEntity, Object> repo) throws ForkNotExistsException {
-        Object id = FieldHandler.getFiledValueByAnnotation(this, Id.class);
+        Object id = FieldHelper.getFiledValueByAnnotation(this, Id.class);
         if (id == null) {
             throw new ForkNotExistsException();
         }
@@ -41,7 +41,7 @@ public interface BaseEntity {
         byId.ifPresent(baseEntity -> {
             Field[] declaredFields = this.getClass().getDeclaredFields();
             for (Field declaredField : declaredFields) {
-                if (FieldHandler.hasAnnotation(declaredField, NoOverwrite.class, LastModifiedDate.class, CreatedDate.class)) {
+                if (FieldHelper.hasAnnotation(declaredField, NoOverwrite.class, LastModifiedDate.class, CreatedDate.class)) {
                     declaredField.setAccessible(true);
                     try {
                         declaredField.set(this, declaredField.get(baseEntity));

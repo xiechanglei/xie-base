@@ -8,7 +8,7 @@
         <artifactId>xie-base</artifactId>
         <version>1.0</version>
     </parent>
-    <artifactId>xie-base-common-web</artifactId>
+    <artifactId>xie-base-web</artifactId>
 
     <dependencies>
         <dependency>

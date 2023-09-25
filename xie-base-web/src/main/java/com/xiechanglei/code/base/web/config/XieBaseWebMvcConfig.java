@@ -1,7 +1,9 @@
 package com.xiechanglei.code.base.web.config;
 
-import com.xiechanglei.code.base.web.resolver.DateTypeResolver;
+import com.xiechanglei.code.base.web.config.properties.BaseWebConfigProperties;
 import com.xiechanglei.code.base.web.resolver.PageTypeResolver;
+import com.xiechanglei.code.base.web.resolver.Pattern2DateResolver;
+import com.xiechanglei.code.base.web.resolver.TImeStamp2DateResolver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -11,6 +13,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
+import static com.xiechanglei.code.base.web.config.properties.BaseWebConfigProperties.READ_DATE_TYPE_PATTERN;
+import static com.xiechanglei.code.base.web.config.properties.BaseWebConfigProperties.READ_DATE_TYPE_TIMESTAMP;
+
 /**
  * 常规配置
  */
@@ -18,8 +23,11 @@ import java.util.List;
 @PropertySource("classpath:xie.base.web.properties")
 @RequiredArgsConstructor
 public class XieBaseWebMvcConfig implements WebMvcConfigurer {
-    private final DateTypeResolver dateTypeResolver;
+    private final Pattern2DateResolver pattern2DateResolver;
     private final PageTypeResolver pageTypeResolver;
+    private final TImeStamp2DateResolver timeStamp2DateResolver;
+    private final BaseWebConfigProperties baseWebConfigProperties;
+
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
@@ -30,7 +38,11 @@ public class XieBaseWebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-        resolvers.add(dateTypeResolver);
+        if (READ_DATE_TYPE_PATTERN.equals(baseWebConfigProperties.getReadDateType())) {
+            resolvers.add(pattern2DateResolver);
+        } else if (READ_DATE_TYPE_TIMESTAMP.equals(baseWebConfigProperties.getReadDateType())){
+            resolvers.add(timeStamp2DateResolver);
+        }
         resolvers.add(pageTypeResolver);
     }
 }
