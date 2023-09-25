@@ -25,11 +25,11 @@ yarn create xie-base
 
 ### 3 模块介绍
 
-- [x] [xie-base-common-bean] (./xie-base-common-bean/README.md)
-- [x] [xie-base-common-digest] (./xie-base-common-digest/README.md)
-- [x] [xie-base-common-http] (./xie-base-common-http/README.md)
-- [x] [xie-base-common-jpa] (./xie-base-common-jpa/README.md)
-- [x] [xie-base-common-json] (./xie-base-common-json/README.md)
-- [x] [xie-base-common-reflect] (./xie-base-common-reflect/README.md)
-- [x] [xie-base-common-web] (./xie-base-common-web/README.md)
-- [x] [xie-base-rbac] (./xie-base-rbac/README.md)
+- [x] [xie-base-common-bean](./xie-base-common-bean/README.md)
+- [x] [xie-base-common-digest](./xie-base-common-digest/README.md)
+- [x] [xie-base-common-http](./xie-base-common-http/README.md)
+- [x] [xie-base-common-jpa](./xie-base-common-jpa/README.md)
+- [x] [xie-base-common-json](./xie-base-common-json/README.md)
+- [x] [xie-base-common-reflect](./xie-base-common-reflect/README.md)
+- [x] [xie-base-common-web](./xie-base-common-web/README.md)
+- [x] [xie-base-rbac](./xie-base-rbac/README.md)
