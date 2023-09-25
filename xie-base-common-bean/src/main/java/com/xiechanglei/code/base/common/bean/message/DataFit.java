@@ -7,14 +7,11 @@ import java.util.TreeMap;
  * <pre>
  *     DataFit dataFit = DataFit.of("name", "xiechanglei").fit("age", 18);
  * </pre>
- * 也可以用来构建URL参数，如：
- * <pre>
- *     String url = DataFit.of("name", "xiechanglei").fit("age", 18).toUrl();
- *     // url = name=xiechanglei&age=18
- * </pre>
- * 此类是通过继承TreeMap来实现的，所以生成的url参数是有序的（按照key升序），因为很多时候都有这种需求，比如做数据签名等等
  */
 public class DataFit extends TreeMap<String, Object> {
+    /**
+     * 给DataFit对象添加属性，并且返回DataFit对象，方便链式调用
+     */
     public DataFit fit(String key, Object value) {
         if (value != null) {
             this.put(key, value);
@@ -22,15 +19,19 @@ public class DataFit extends TreeMap<String, Object> {
         return this;
     }
 
+    /**
+     * 静态方法，用于快速构建DataFit对象
+     */
     public static DataFit of(String key, Object value) {
         return new DataFit().fit(key, value);
     }
 
+    /**
+     * 将数据转换成url参数,因为继承了TreeMap，所以参数是有序的，用于一些需要排序后做签名的场景
+     */
     public String toUrl() {
         StringBuilder sb = new StringBuilder();
-        this.forEach((k, v) -> {
-            sb.append(k).append("=").append(v).append("&");
-        });
+        this.forEach((k, v) -> sb.append(k).append("=").append(v).append("&"));
         return sb.substring(0, sb.length() - 1);
     }
 }
