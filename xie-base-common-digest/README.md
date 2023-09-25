@@ -22,7 +22,7 @@
 
 MD5加密工具类，用于生成MD5加密的字符串。
 
-```
+```java
 // 生成一个MD5加密的字符串
 String md5 = MD5Util.md5("123456");
 ```
@@ -31,7 +31,7 @@ String md5 = MD5Util.md5("123456");
 
 AES加密工具类，用于生成AES加密的字符串。
 
-```
+```java
 // 生成一个AES加密的字符串
 String secret = AESHelper.encode("123456","password","iv-content");
 // 解密

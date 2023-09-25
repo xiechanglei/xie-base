@@ -22,7 +22,7 @@
 
 HTTP请求工具类，用于发送HTTP请求。
 
-```
+```java
 // 构建请求终端
 HttpRequest request = HttpHelper.build()
 // 模拟浏览器请求终端
