@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
+import java.util.Map;
 
 public class HttpResponse extends JsonContainerAdapter {
 
@@ -22,6 +23,22 @@ public class HttpResponse extends JsonContainerAdapter {
     }
 
     // header
+    public String header(String name) {
+        return response.header(name);
+    }
+
+    public Map<String, String> headers() {
+        return response.headers();
+    }
+
+    public String cookie(String name) {
+        return response.cookie(name);
+    }
+
+    public Map<String, String> cookies() {
+        return response.cookies();
+    }
+
     public int statusCode() {
         return response.statusCode();
     }
@@ -37,7 +54,7 @@ public class HttpResponse extends JsonContainerAdapter {
     //dom
     public Document parse() throws IOException {
         hasRead = true;
-        if(document == null){
+        if (document == null) {
             document = response.parse();
         }
         return document;
