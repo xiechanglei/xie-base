@@ -1,6 +1,8 @@
 package com.xiechanglei.code.base.rbac.token;
 
 import com.xiechanglei.code.base.rbac.properties.RbacConfigProperties;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
@@ -8,9 +10,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * token发现机制的默认实现,必须存在一个TokenInterceptor的实现类，否则无法实现token的权限过滤
@@ -39,9 +38,9 @@ public class TokenInterceptor implements HandlerInterceptor, WebMvcConfigurer {
             authTokenStr = request.getHeader(REQUEST_KEY);
         }
         if (!StringUtils.hasText(authTokenStr)) {
-            javax.servlet.http.Cookie[] cookies = request.getCookies();
+            jakarta.servlet.http.Cookie[] cookies = request.getCookies();
             if (cookies != null) {
-                for (javax.servlet.http.Cookie cookie : cookies) {
+                for (jakarta.servlet.http.Cookie cookie : cookies) {
                     if (REQUEST_KEY.equals(cookie.getName())) {
                         authTokenStr = cookie.getValue();
                         break;

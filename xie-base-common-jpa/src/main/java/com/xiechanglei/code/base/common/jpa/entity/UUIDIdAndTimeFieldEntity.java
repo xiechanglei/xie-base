@@ -1,5 +1,7 @@
 package com.xiechanglei.code.base.common.jpa.entity;
 
+import com.xiechanglei.code.base.common.jpa.generator.MyUUIDGenerator;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -7,7 +9,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -20,7 +21,7 @@ import java.util.Date;
 public class UUIDIdAndTimeFieldEntity implements BaseEntity{
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "com.xiechanglei.code.base.common.jpa.generator.MyUUIDGenerator")
+    @GenericGenerator(name = "uuid", type = MyUUIDGenerator.class)
     @Column(length = 32, columnDefinition = "varchar(32) comment '物理主键'")
     private String id;
 

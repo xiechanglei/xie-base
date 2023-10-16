@@ -17,10 +17,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.xiechanglei.code</groupId>
             <artifactId>xie-base-common-reflect</artifactId>
             <version>1.0</version>

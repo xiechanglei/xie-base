@@ -1,6 +1,6 @@
 {
   "name": "create-xie-base",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "some base code for project",
   "main": "index.js",
   "bin": {
