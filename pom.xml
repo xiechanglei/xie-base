@@ -3,9 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>3.1.4</version>
+    </parent>
+
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <revision>3.1.4</revision>
+    </properties>
+
+
     <groupId>com.xiechanglei.code</groupId>
     <artifactId>xie-base</artifactId>
-    <version>1.0</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -19,18 +34,52 @@
         <module>xie-base-common-json</module>
     </modules>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
-    <parent>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <groupId>org.springframework.boot</groupId>
-        <version>3.1.4</version>
-        <relativePath/>
-    </parent>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.xiechanglei.code</groupId>
+                <artifactId>xie-base-common-digest</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xiechanglei.code</groupId>
+                <artifactId>xie-base-common-jpa</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xiechanglei.code</groupId>
+                <artifactId>xie-base-common-reflect</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xiechanglei.code</groupId>
+                <artifactId>xie-base-rbac</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xiechanglei.code</groupId>
+                <artifactId>xie-base-web</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xiechanglei.code</groupId>
+                <artifactId>xie-base-common-bean</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xiechanglei.code</groupId>
+                <artifactId>xie-base-common-http</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xiechanglei.code</groupId>
+                <artifactId>xie-base-common-json</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -39,5 +88,34 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
 
+    </build>
 </project>

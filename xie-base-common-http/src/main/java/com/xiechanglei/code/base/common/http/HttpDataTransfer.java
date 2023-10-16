@@ -10,14 +10,11 @@ import java.util.Map;
 /**
  * http 数据传输对象
  */
+@Getter
 public class HttpDataTransfer {
-    @Getter
     private final Map<String, String> headers = new HashMap<>();
-    @Getter
     private final Map<String, String> params = new HashMap<>();
-    @Getter
     private final Map<String, String> cookies = new HashMap<>();
-    @Getter
     private String body;
 
     //header

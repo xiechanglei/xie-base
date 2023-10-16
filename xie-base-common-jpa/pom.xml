@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.xiechanglei.code</groupId>
         <artifactId>xie-base</artifactId>
-        <version>1.0</version>
+        <version>${revision}</version>
     </parent>
     <artifactId>xie-base-common-jpa</artifactId>
 
@@ -19,7 +19,6 @@
         <dependency>
             <groupId>com.xiechanglei.code</groupId>
             <artifactId>xie-base-common-reflect</artifactId>
-            <version>1.0</version>
         </dependency>
     </dependencies>
 

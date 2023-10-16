@@ -6,9 +6,8 @@
     <parent>
         <groupId>com.xiechanglei.code</groupId>
         <artifactId>xie-base</artifactId>
-        <version>1.0</version>
+        <version>${revision}</version>
     </parent>
-
     <artifactId>xie-base-common-http</artifactId>
 
     <dependencies>
@@ -20,20 +19,7 @@
         <dependency>
             <groupId>com.xiechanglei.code</groupId>
             <artifactId>xie-base-common-json</artifactId>
-            <version>1.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>9</source>
-                    <target>9</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>

@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.xiechanglei.code</groupId>
         <artifactId>xie-base</artifactId>
-        <version>1.0</version>
+        <version>${revision}</version>
     </parent>
     <artifactId>xie-base-common-bean</artifactId>
 
