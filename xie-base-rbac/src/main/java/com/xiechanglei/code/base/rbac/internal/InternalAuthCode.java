@@ -5,8 +5,23 @@ import com.xiechanglei.code.base.rbac.annotation.AuthCodeManager;
 import com.xiechanglei.code.base.rbac.annotation.AuthMenu;
 import org.springframework.stereotype.Component;
 
+/**
+ * 内置的权限码，用于一些内置的权限码的注册
+ * TODO 这里应该重构一下，QUERY =
+ */
 @Component
 public interface InternalAuthCode {
+    /**
+     * todo
+     */
+//    @Component
+//    @AuthMenu("rbac:menu:animal:manager","惧色管理")
+//    class Animal{
+//
+//        @AuthAction("动物新增")
+//        private static final String QUERY = "rbac:action:animal:query";
+//
+//    }
     @Component
     class ROLE {
         public static final String ADD = "rbac:action:role:add";
@@ -22,6 +37,7 @@ public interface InternalAuthCode {
             AuthCodeManager.register(new AuthAction(ENABLE, "角色启用/禁用", roleMenu));
         }
     }
+
 
     @Component
     class MENU {

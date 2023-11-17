@@ -1,18 +1,22 @@
 package com.xiechanglei.code.base.rbac.controller;
 
 import com.xiechanglei.code.base.rbac.annotation.RbacAuth;
+import com.xiechanglei.code.base.rbac.entity.RbacAuthRole;
 import com.xiechanglei.code.base.rbac.internal.InternalAuthCode;
 import com.xiechanglei.code.base.rbac.repo.RbacAuthRoleRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
+/**
+ * 角色相关的接口
+ *
+ */
 @RestController
-@ConditionalOnBean(InternalControllerMessageBuilder.class)
 @RequiredArgsConstructor
 public class RoleController {
-    private final InternalControllerMessageBuilder internalControllerMessageBuilder;
     private final RbacAuthRoleRepository rbacAuthRoleRepository;
 
     /**
@@ -20,8 +24,8 @@ public class RoleController {
      */
     @RbacAuth(InternalAuthCode.ROLE.QUERY)
     @RequestMapping("/rbac/role/list")
-    public Object listAllRole() {
-        return internalControllerMessageBuilder.success(rbacAuthRoleRepository.findAll());
+    public List<RbacAuthRole> listAllRole() {
+        return rbacAuthRoleRepository.findAll();
     }
 
     //添加角色

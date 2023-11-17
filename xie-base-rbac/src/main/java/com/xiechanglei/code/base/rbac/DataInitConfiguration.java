@@ -6,6 +6,7 @@ import com.xiechanglei.code.base.rbac.entity.RbacAuthMenu;
 import com.xiechanglei.code.base.rbac.properties.RbacConfigProperties;
 import com.xiechanglei.code.base.rbac.repo.RbacAuthActionRepository;
 import com.xiechanglei.code.base.rbac.repo.RbacAuthMenuRepository;
+import jakarta.annotation.Nonnull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -24,17 +25,21 @@ public class DataInitConfiguration implements ApplicationContextAware {
     private final RbacAuthMenuRepository rbacAuthMenuRepository;
     private final RbacAuthActionRepository rbacAuthActionRepository;
 
+    /**
+     * 自动初始化权限菜单和权限动作相关的数据
+     */
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+    public void setApplicationContext(@Nonnull ApplicationContext applicationContext) throws BeansException {
+        //获取所有的controller
         if (rbacConfigProperties.isAuto()) {
             AuthCodeManager.authActionMap.values().forEach(action -> {
-                if (!rbacAuthActionRepository.existsById(action.getActionCode())) {
-                    rbacAuthActionRepository.save(new RbacAuthAction(action.getActionName(), action.getActionCode(), action.getAuthMenu().getMenuId()));
+                if (!rbacAuthActionRepository.existsById(action.actionCode())) {
+                    rbacAuthActionRepository.save(new RbacAuthAction(action.actionName(), action.actionCode(), action.authMenu().menuId()));
                 }
             });
             AuthCodeManager.authMenuMap.values().forEach(menu -> {
-                if (!rbacAuthMenuRepository.existsById(menu.getMenuId())) {
-                    rbacAuthMenuRepository.save(new RbacAuthMenu(menu.getMenuId(), menu.getMenuName(), RbacAuthMenu.MENU_TYPE_PAGE));
+                if (!rbacAuthMenuRepository.existsById(menu.menuId())) {
+                    rbacAuthMenuRepository.save(new RbacAuthMenu(menu.menuId(), menu.menuName(), RbacAuthMenu.MENU_TYPE_PAGE));
                 }
             });
         }

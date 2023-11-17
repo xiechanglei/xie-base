@@ -26,9 +26,9 @@ public class DefaultPermissionService {
         TokenInfo tokenInfo = (TokenInfo) ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest().getAttribute(TokenInterceptor.REQUEST_ATTR_TOKEN_KEY);
         if (tokenInfo != null) {
             if (RbacConfigProperties.LEVEL_MENU.equals(rbacConfigProperties.getLevel())) {
-                return getRbacAuthActionRepository.findActionCodeByRoleMenuAction(tokenInfo.getUserId(), permissions).size() > 0;
+                return !getRbacAuthActionRepository.findActionCodeByRoleMenuAction(tokenInfo.getUserId(), permissions).isEmpty();
             }
-            return getRbacAuthActionRepository.findActionCodeByRoleAction(tokenInfo.getUserId(), permissions).size() > 0;
+            return !getRbacAuthActionRepository.findActionCodeByRoleAction(tokenInfo.getUserId(), permissions).isEmpty();
         }
         return false;
     }

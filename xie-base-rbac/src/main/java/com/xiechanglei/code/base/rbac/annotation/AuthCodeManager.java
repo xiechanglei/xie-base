@@ -11,7 +11,7 @@ public class AuthCodeManager {
     public static Map<String, AuthMenu> authMenuMap = new HashMap<>();
 
     public static void register(AuthAction authAction) {
-        authActionMap.put(authAction.getActionCode(), authAction);
-        authMenuMap.put(authAction.getAuthMenu().getMenuId(), authAction.getAuthMenu());
+        authActionMap.put(authAction.actionCode(), authAction);
+        authMenuMap.put(authAction.authMenu().menuId(), authAction.authMenu());
     }
 }
