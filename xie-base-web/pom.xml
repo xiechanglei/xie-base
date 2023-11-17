@@ -14,6 +14,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.yaml</groupId>
+                    <artifactId>snakeyaml</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -31,7 +37,6 @@
     </dependencies>
 
     <build>
-        <!--        包含 resources/sw.db.properties -->
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

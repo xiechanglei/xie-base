@@ -77,7 +77,6 @@
                 <artifactId>xie-base-common-json</artifactId>
                 <version>${revision}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
