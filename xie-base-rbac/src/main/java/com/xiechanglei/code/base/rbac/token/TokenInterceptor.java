@@ -1,6 +1,7 @@
 package com.xiechanglei.code.base.rbac.token;
 
 import com.xiechanglei.code.base.rbac.properties.RbacConfigProperties;
+import jakarta.annotation.Nonnull;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Component
 @RequiredArgsConstructor
-@ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "enable", havingValue = "true")
+@ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
 public class TokenInterceptor implements HandlerInterceptor, WebMvcConfigurer {
     private final RbacConfigProperties rbacConfigProperties;
     public static final String REQUEST_ATTR_TOKEN_KEY = "BASE_AUTH_TOKEN_INFO";// 存放在request中的token信息的key
@@ -25,7 +26,7 @@ public class TokenInterceptor implements HandlerInterceptor, WebMvcConfigurer {
      * 从请求头中获取token，解析token，获取用户信息，将用户信息放入上下文
      */
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+    public boolean preHandle(@Nonnull HttpServletRequest request, @Nonnull HttpServletResponse response, @Nonnull Object handler) {
         TokenInfo decode = TokenHandler.decode(getTokenStrFromRequest(request));
         request.setAttribute(REQUEST_ATTR_TOKEN_KEY, decode);
         return true;

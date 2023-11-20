@@ -15,7 +15,7 @@ public interface RbacAuthActionRepository extends JpaRepository<RbacAuthAction, 
             "and ref.roleId = ur.roleId  and ur.roleId = r.id and r.enable = true " +
             "and ur.userId = ?1 " +
             "and ac.actionCode in ?2 ")
-    List<String> findActionCodeByRoleMenuAction(String userId, List<String> actionCodes);
+    List<String> findActionCodeByRoleMenuAction(String userId, String[] actionCodes);
 
     @Query("select ac.actionCode from RbacAuthAction ac ,RbacAuthRoleRef ref ,RbacAuthMenu menu,RbacAuthUserRole ur,RbacAuthRole  r " +
             "where ref.authType='action' " +
@@ -24,5 +24,5 @@ public interface RbacAuthActionRepository extends JpaRepository<RbacAuthAction, 
             "and ref.roleId = ur.roleId and ur.roleId = r.id and r.enable = true " +
             "and ur.userId = ?1 " +
             "and ac.actionCode in ?2")
-    List<String> findActionCodeByRoleAction(String userId, List<String> actionCodes);
+    List<String> findActionCodeByRoleAction(String userId, String[] actionCodes);
 }

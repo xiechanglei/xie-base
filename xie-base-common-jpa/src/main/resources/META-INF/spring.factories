@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.xiechanglei.code.base.common.jpa.config.XieJpaAutoConfiguration
+```
