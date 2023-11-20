@@ -23,4 +23,11 @@ public class RbacAuthRole extends UUIDIdAndTimeFieldEntity  {
 
     @Column(length = 1, columnDefinition = "int(1) comment '是否启用'")
     private  Boolean enable;
+
+    public static RbacAuthRole create(String roleName){
+        RbacAuthRole rbacAuthRole = new RbacAuthRole();
+        rbacAuthRole.setRoleName(roleName);
+        rbacAuthRole.setEnable(true);
+        return rbacAuthRole;
+    }
 }
