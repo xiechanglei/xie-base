@@ -14,6 +14,10 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Field;
 import java.util.Map;
 
+/**
+ * 在项目启动的时候，自动更新权限数据,更新的规则是:
+ * 1.寻找所有的带有@PermissionMenu注解的类，将其注解的code和title保存到数据库中
+ */
 @Component
 @RequiredArgsConstructor
 @ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
@@ -21,7 +25,13 @@ public class DataInitiation {
     private final RbacAuthMenuRepository rbacAuthMenuRepository;
     private final RbacAuthActionRepository rbacAuthActionRepository;
     /**
-     * 自动更新权限数据
+     * 自动更新权限数据,
+     * TODO :
+     * 1. menu 跟action的名字无法更新
+     * 2. 废弃的权限无法删除
+     * 3. 效率太低 优先级别不是很高,可以通过其他的方案解决
+     * 注意的问题:
+     * 1.不能丢失菜单权限中的可以被维护的数据
      */
     public void initData(ApplicationContext applicationContext) {
         Map<String, Object> beansWithAnnotation = applicationContext.getBeansWithAnnotation(PermissionMenu.class);
