@@ -1,6 +1,8 @@
 package com.xiechanglei.code.base.rbac;
 
+import com.xiechanglei.code.base.rbac.init.DataInitiation;
 import com.xiechanglei.code.base.rbac.init.TableInitiation;
+import com.xiechanglei.code.base.rbac.properties.RbacConfigProperties;
 import jakarta.annotation.Nonnull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeansException;
@@ -22,10 +24,17 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @RequiredArgsConstructor
 @ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
 public class DataInitConfiguration implements ApplicationContextAware {
+    private final RbacConfigProperties rbacConfigProperties;
     private final TableInitiation tableInitiation;
+    private final DataInitiation dataInitiation;
+
 
     @Override
     public void setApplicationContext(@Nonnull ApplicationContext applicationContext) throws BeansException {
-        tableInitiation.init(applicationContext);
+        if (rbacConfigProperties.isAuto()) {
+            tableInitiation.createTableIfNotExist();
+            dataInitiation.initData(applicationContext);
+        }
+
     }
 }
