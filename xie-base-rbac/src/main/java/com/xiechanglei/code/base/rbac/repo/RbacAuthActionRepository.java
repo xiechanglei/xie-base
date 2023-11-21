@@ -3,6 +3,7 @@ package com.xiechanglei.code.base.rbac.repo;
 import com.xiechanglei.code.base.rbac.entity.RbacAuthAction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -25,4 +26,8 @@ public interface RbacAuthActionRepository extends JpaRepository<RbacAuthAction, 
             "and ur.userId = ?1 " +
             "and ac.actionCode in ?2")
     List<String> findActionCodeByRoleAction(String userId, String[] actionCodes);
+
+    @Modifying
+    @Query("delete from RbacAuthAction ac")
+    void deleteAll();
 }
