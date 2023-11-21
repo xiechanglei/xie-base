@@ -1,5 +1,6 @@
 package com.xiechanglei.code.base.web.advice;
 
+import com.xiechanglei.code.base.common.bean.message.MessageException;
 import com.xiechanglei.code.base.common.bean.message.MessageResponse;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.web.bind.annotation.ExceptionHandler;

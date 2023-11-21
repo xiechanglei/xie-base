@@ -5,7 +5,7 @@ import com.xiechanglei.code.base.rbac.entity.RbacAuthRole;
 import com.xiechanglei.code.base.rbac.internal.RolePermission;
 import com.xiechanglei.code.base.rbac.repo.RbacAuthRoleRepository;
 import com.xiechanglei.code.base.rbac.repo.RbacAuthUserRoleRepository;
-import com.xiechanglei.code.base.web.advice.MessageException;
+import com.xiechanglei.code.base.common.bean.message.MessageException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.web.bind.annotation.RequestMapping;

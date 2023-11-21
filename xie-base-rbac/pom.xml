@@ -11,8 +11,18 @@
     <artifactId>xie-base-rbac</artifactId>
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.yaml</groupId>
+                    <artifactId>snakeyaml</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
             <groupId>com.xiechanglei.code</groupId>
-            <artifactId>xie-base-web</artifactId>
+            <artifactId>xie-base-common-bean</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
