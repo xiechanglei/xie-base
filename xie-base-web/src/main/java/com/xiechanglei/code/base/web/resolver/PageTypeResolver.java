@@ -1,6 +1,6 @@
 package com.xiechanglei.code.base.web.resolver;
 
-import com.xiechanglei.code.base.web.config.properties.BaseWebConfigProperties;
+import com.xiechanglei.code.base.web.properties.BaseWebConfigProperties;
 import jakarta.annotation.Nonnull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.MethodParameter;

@@ -1,4 +1,4 @@
-package com.xiechanglei.code.base.web.config.properties;
+package com.xiechanglei.code.base.web.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
