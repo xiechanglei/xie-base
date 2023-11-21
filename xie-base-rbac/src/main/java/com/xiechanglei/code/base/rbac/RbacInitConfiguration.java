@@ -28,7 +28,6 @@ public class RbacInitConfiguration implements ApplicationContextAware {
     private final TableInitiation tableInitiation;
     private final DataInitiation dataInitiation;
 
-
     @Override
     public void setApplicationContext(@Nonnull ApplicationContext applicationContext) throws BeansException {
         if (rbacConfigProperties.isAuto()) {
