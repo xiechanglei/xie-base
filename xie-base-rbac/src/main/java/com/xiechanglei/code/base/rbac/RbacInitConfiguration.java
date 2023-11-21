@@ -23,7 +23,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Configuration
 @RequiredArgsConstructor
 @ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
-public class DataInitConfiguration implements ApplicationContextAware {
+public class RbacInitConfiguration implements ApplicationContextAware {
     private final RbacConfigProperties rbacConfigProperties;
     private final TableInitiation tableInitiation;
     private final DataInitiation dataInitiation;
