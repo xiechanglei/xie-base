@@ -1,9 +1,7 @@
 package com.xiechanglei.code.base.rbac.token;
 
+import org.springframework.lang.NonNull;
 import com.xiechanglei.code.base.rbac.properties.RbacConfigProperties;
-import jakarta.annotation.Nonnull;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
@@ -11,6 +9,9 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * token发现机制的默认实现,必须存在一个TokenInterceptor的实现类，否则无法实现token的权限过滤
@@ -26,7 +27,7 @@ public class TokenInterceptor implements HandlerInterceptor, WebMvcConfigurer {
      * 从请求头中获取token，解析token，获取用户信息，将用户信息放入上下文
      */
     @Override
-    public boolean preHandle(@Nonnull HttpServletRequest request, @Nonnull HttpServletResponse response, @Nonnull Object handler) {
+    public boolean preHandle(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull Object handler) {
         TokenInfo decode = TokenHandler.decode(getTokenStrFromRequest(request));
         request.setAttribute(REQUEST_ATTR_TOKEN_KEY, decode);
         return true;
@@ -39,9 +40,9 @@ public class TokenInterceptor implements HandlerInterceptor, WebMvcConfigurer {
             authTokenStr = request.getHeader(REQUEST_KEY);
         }
         if (!StringUtils.hasText(authTokenStr)) {
-            jakarta.servlet.http.Cookie[] cookies = request.getCookies();
+            javax.servlet.http.Cookie[] cookies = request.getCookies();
             if (cookies != null) {
-                for (jakarta.servlet.http.Cookie cookie : cookies) {
+                for (javax.servlet.http.Cookie cookie : cookies) {
                     if (REQUEST_KEY.equals(cookie.getName())) {
                         authTokenStr = cookie.getValue();
                         break;

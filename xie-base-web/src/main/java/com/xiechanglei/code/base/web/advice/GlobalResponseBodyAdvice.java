@@ -3,7 +3,7 @@ package com.xiechanglei.code.base.web.advice;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xiechanglei.code.base.common.bean.message.MessageResponse;
-import jakarta.annotation.Nonnull;
+import org.springframework.lang.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.core.MethodParameter;
@@ -25,15 +25,15 @@ public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     private final ObjectMapper objectMapper;
 
     @Override
-    public boolean supports(MethodParameter returnType, @Nonnull Class<? extends HttpMessageConverter<?>> aClass) {
+    public boolean supports(MethodParameter returnType, @NonNull Class<? extends HttpMessageConverter<?>> aClass) {
         return !returnType.getGenericParameterType().equals(MessageResponse.class);
     }
 
     @Override
-    public Object beforeBodyWrite(Object body, @Nonnull MethodParameter returnType, @Nonnull MediaType selectedContentType,
-                                  @Nonnull Class<? extends HttpMessageConverter<?>> selectedConverterType,
-                                  @Nonnull ServerHttpRequest request,
-                                  @Nonnull ServerHttpResponse response) {
+    public Object beforeBodyWrite(Object body, @NonNull MethodParameter returnType, @NonNull MediaType selectedContentType,
+                                  @NonNull Class<? extends HttpMessageConverter<?>> selectedConverterType,
+                                  @NonNull ServerHttpRequest request,
+                                  @NonNull ServerHttpResponse response) {
         if (body instanceof String) { //String 类型需要特殊处理
             try {
                 response.getHeaders().setContentType(MediaType.APPLICATION_JSON);

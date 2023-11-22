@@ -17,6 +17,7 @@ public class HttpResponse extends JsonContainerAdapter {
     private final Connection.Response response;
     private boolean hasRead = false;
     private Document document;
+    private static final int DEFAULT_BUFFER_SIZE = 8 * 1024;
 
     public HttpResponse(Connection.Response response) {
         this.response = response;
@@ -84,7 +85,11 @@ public class HttpResponse extends JsonContainerAdapter {
         } else {
             try (BufferedInputStream inputStream = response.bodyStream();
                  OutputStream OutputStream = Files.newOutputStream(file.toPath())) {
-                inputStream.transferTo(OutputStream);
+                byte[] buffer = new byte[DEFAULT_BUFFER_SIZE];
+                int read;
+                while ((read = inputStream.read(buffer, 0, DEFAULT_BUFFER_SIZE)) >= 0) {
+                    OutputStream.write(buffer, 0, read);
+                }
             }
         }
         return file;

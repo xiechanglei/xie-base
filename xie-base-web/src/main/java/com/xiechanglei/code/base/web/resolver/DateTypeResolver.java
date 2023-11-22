@@ -1,7 +1,7 @@
 package com.xiechanglei.code.base.web.resolver;
 
-import jakarta.annotation.Nonnull;
 import org.springframework.core.MethodParameter;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.support.WebDataBinderFactory;
@@ -32,7 +32,7 @@ public class DateTypeResolver implements HandlerMethodArgumentResolver {
     }
 
     @Override
-    public Date resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, @Nonnull NativeWebRequest webRequest, WebDataBinderFactory binderFactory) {
+    public Date resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, @NonNull NativeWebRequest webRequest, WebDataBinderFactory binderFactory) {
         String paramName = parameter.getParameterName();
         String dateStr = webRequest.getParameter(paramName == null ? "" : paramName);
         if (!StringUtils.hasText(dateStr)) {

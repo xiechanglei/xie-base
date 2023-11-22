@@ -1,7 +1,7 @@
 package com.xiechanglei.code.base.web.resolver;
 
 import com.xiechanglei.code.base.web.properties.BaseWebConfigProperties;
-import jakarta.annotation.Nonnull;
+import org.springframework.lang.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
@@ -26,7 +26,7 @@ public class PageTypeResolver implements HandlerMethodArgumentResolver {
     }
 
     @Override
-    public Integer resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, @Nonnull NativeWebRequest webRequest, WebDataBinderFactory binderFactory) {
+    public Integer resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, @NonNull NativeWebRequest webRequest, WebDataBinderFactory binderFactory) {
         String parameterName = parameter.getParameterName();
         if (parameterName == null) {
             return null;

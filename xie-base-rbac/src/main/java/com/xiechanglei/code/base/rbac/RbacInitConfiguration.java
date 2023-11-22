@@ -1,9 +1,9 @@
 package com.xiechanglei.code.base.rbac;
 
+import org.springframework.lang.NonNull;
 import com.xiechanglei.code.base.rbac.init.DataInitiation;
 import com.xiechanglei.code.base.rbac.init.TableInitiation;
 import com.xiechanglei.code.base.rbac.properties.RbacConfigProperties;
-import jakarta.annotation.Nonnull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -29,7 +29,7 @@ public class RbacInitConfiguration implements ApplicationContextAware {
     private final DataInitiation dataInitiation;
 
     @Override
-    public void setApplicationContext(@Nonnull ApplicationContext applicationContext) throws BeansException {
+    public void setApplicationContext(@NonNull ApplicationContext applicationContext) throws BeansException {
         if (rbacConfigProperties.isAuto()) {
             tableInitiation.createTableIfNotExist();
             dataInitiation.initData(applicationContext);

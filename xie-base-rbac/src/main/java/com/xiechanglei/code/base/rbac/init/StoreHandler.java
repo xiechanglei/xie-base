@@ -5,6 +5,7 @@ import com.xiechanglei.code.base.common.bean.function.ResultFunctionFace;
 import lombok.Getter;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Getter
 public class StoreHandler<T> {
@@ -35,6 +36,6 @@ public class StoreHandler<T> {
     }
 
     public List<T> getNeedDelete() {
-        return all.stream().filter(a -> !needStore.containsKey(keyProcessor.process(a))).toList();
+        return all.stream().filter(a -> !needStore.containsKey(keyProcessor.process(a))).collect(Collectors.toList());
     }
 }

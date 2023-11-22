@@ -1,12 +1,10 @@
 package com.xiechanglei.code.base.rbac.entity;
 
 import com.xiechanglei.code.base.common.jpa.entity.UUIDIdEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Index;
-import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.*;
 
 /**
  * RBAC用户角色对应表,表示一个用户可以拥有多个角色

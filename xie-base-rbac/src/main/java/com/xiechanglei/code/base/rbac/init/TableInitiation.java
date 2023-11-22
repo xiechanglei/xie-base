@@ -1,15 +1,15 @@
 package com.xiechanglei.code.base.rbac.init;
 
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.spi.PersistenceProvider;
-import jakarta.persistence.spi.PersistenceProviderResolverHolder;
-import jakarta.persistence.spi.PersistenceUnitInfo;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.spi.PersistenceProvider;
+import javax.persistence.spi.PersistenceProviderResolverHolder;
+import javax.persistence.spi.PersistenceUnitInfo;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

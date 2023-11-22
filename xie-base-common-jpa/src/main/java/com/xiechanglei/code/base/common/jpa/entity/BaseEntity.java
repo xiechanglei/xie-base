@@ -3,11 +3,11 @@ package com.xiechanglei.code.base.common.jpa.entity;
 import com.xiechanglei.code.base.common.jpa.annotation.NoOverwrite;
 import com.xiechanglei.code.base.common.jpa.exception.ForkNotExistsException;
 import com.xiechanglei.code.base.common.reflect.FieldHelper;
-import jakarta.persistence.Id;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import javax.persistence.Id;
 import java.lang.reflect.Field;
 import java.util.Optional;
 

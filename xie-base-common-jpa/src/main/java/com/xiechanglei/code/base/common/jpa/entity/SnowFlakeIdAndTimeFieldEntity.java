@@ -1,7 +1,5 @@
 package com.xiechanglei.code.base.common.jpa.entity;
 
-import com.xiechanglei.code.base.common.jpa.generator.SnowFlakeIdGenerator;
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -9,6 +7,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -20,7 +19,7 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class SnowFlakeIdAndTimeFieldEntity implements BaseEntity{
     @Id
-    @GenericGenerator(name = "snowFlakeIdGenerator", type = SnowFlakeIdGenerator.class)
+    @GenericGenerator(name = "snowFlakeIdGenerator", strategy = "com.xiechanglei.code.base.common.jpa.generator.SnowFlakeIdGenerator")
     @GeneratedValue(generator = "snowFlakeIdGenerator")
     @Column(length = 38, columnDefinition = "varchar(38) comment '物理主键'")
     public String id;
