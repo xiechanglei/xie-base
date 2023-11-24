@@ -8,13 +8,12 @@
         <artifactId>xie-base</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>xie-base-common-jpa</artifactId>
+    <artifactId>xie-base-test</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <scope>provided</scope>
+            <artifactId>spring-boot-starter</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>org.yaml</groupId>
@@ -22,16 +21,9 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
-        <dependency>
-            <groupId>jakarta.persistence</groupId>
-            <artifactId>jakarta.persistence-api</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>com.xiechanglei.code</groupId>
-            <artifactId>xie-base-common-reflect</artifactId>
+            <artifactId>xie-base-common-jpa</artifactId>
         </dependency>
     </dependencies>
-
 </project>

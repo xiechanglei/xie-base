@@ -11,6 +11,7 @@
     <file url="file://$PROJECT_DIR$/xie-base-common-json/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xie-base-common-reflect/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xie-base-rbac/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xie-base-test/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xie-base-web/src/main/java" charset="UTF-8" />
   </component>
 </project>

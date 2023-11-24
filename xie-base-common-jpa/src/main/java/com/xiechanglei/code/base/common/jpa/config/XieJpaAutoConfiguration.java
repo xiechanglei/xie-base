@@ -1,8 +1,8 @@
 package com.xiechanglei.code.base.common.jpa.config;
 
 
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.ComponentScan;
 
-@PropertySource("classpath:xie.base.jpa.properties")
+@ComponentScan("com.xiechanglei.code.base.common.jpa")
 public class XieJpaAutoConfiguration {
 }
