@@ -8,7 +8,8 @@
         <artifactId>xie-base</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>xie-base-test</artifactId>
+
+    <artifactId>xie-base-netty</artifactId>
 
     <dependencies>
         <dependency>
@@ -22,8 +23,9 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.xiechanglei.code</groupId>
-            <artifactId>xie-base-netty</artifactId>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec</artifactId>
         </dependency>
     </dependencies>
+
 </project>

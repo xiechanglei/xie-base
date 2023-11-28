@@ -1,4 +1,4 @@
-package com.xiechanglei.code;
+package com.xiechanglei.code.test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

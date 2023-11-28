@@ -33,6 +33,7 @@
         <module>xie-base-common-http</module>
         <module>xie-base-common-json</module>
         <module>xie-base-test</module>
+        <module>xie-base-netty</module>
     </modules>
 
 
@@ -76,6 +77,11 @@
             <dependency>
                 <groupId>com.xiechanglei.code</groupId>
                 <artifactId>xie-base-common-json</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xiechanglei.code</groupId>
+                <artifactId>xie-base-netty</artifactId>
                 <version>${revision}</version>
             </dependency>
         </dependencies>
