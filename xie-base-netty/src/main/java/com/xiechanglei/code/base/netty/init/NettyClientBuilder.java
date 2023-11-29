@@ -14,7 +14,7 @@ public class NettyClientBuilder {
     public static void create(String server,
                               int port,
                               ChannelType channelType,
-                              Class<? extends SocketChannel> channelClass,
+                              Class<? extends Channel> channelClass,
                               List<ChannelHandler> channelHandlers,
                               NettyConfigBuilder configBuilder
     ) throws Exception {
@@ -39,7 +39,6 @@ public class NettyClientBuilder {
             future.channel().closeFuture().sync();
             throw new InterruptedException();
         } finally {
-            //
             bootstrap.group().shutdownGracefully();
         }
     }

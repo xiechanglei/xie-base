@@ -2,8 +2,8 @@ package com.xiechanglei.code.base.netty.annotation;
 
 
 import com.xiechanglei.code.base.netty.init.NettyConfigBuilder;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
-import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import org.springframework.stereotype.Component;
 
@@ -37,7 +37,7 @@ public @interface NettyClient {
     /**
      * channelClass
      */
-    Class<? extends SocketChannel> channelClass() default NioSocketChannel.class;
+    Class<? extends Channel> channelClass() default NioSocketChannel.class;
 
     /**
      * 错误后是否重试
