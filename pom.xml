@@ -34,6 +34,7 @@
         <module>xie-base-common-json</module>
         <module>xie-base-test</module>
         <module>xie-base-netty</module>
+        <module>xie-base-common</module>
     </modules>
 
 
@@ -82,6 +83,11 @@
             <dependency>
                 <groupId>com.xiechanglei.code</groupId>
                 <artifactId>xie-base-netty</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xiechanglei.code</groupId>
+                <artifactId>xie-base-common</artifactId>
                 <version>${revision}</version>
             </dependency>
         </dependencies>
