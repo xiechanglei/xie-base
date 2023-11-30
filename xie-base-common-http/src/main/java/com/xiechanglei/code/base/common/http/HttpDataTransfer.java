@@ -85,7 +85,7 @@ public class HttpDataTransfer {
     public HttpDataTransfer json(Object data) {
         if (data != null) {
             try {
-                String json = JsonHelper.toJson(data);
+                body(JsonHelper.toJson(data));
             } catch (JsonProcessingException ignored) {
             }
         }
