@@ -73,4 +73,18 @@ public class ByteArrayHelper {
         return result;
     }
 
+    /**
+     * 将字节数组转换为long
+     */
+    public static long toLong(byte[] bytes) {
+        if (bytes == null || bytes.length == 0) {
+            return 0;
+        }
+        long result = 0;
+        for (int i = 0; i < bytes.length; i++) {
+            result += (long) (bytes[i] & 0xFF) << (8 * (bytes.length - i - 1));
+        }
+        return result;
+    }
+
 }
