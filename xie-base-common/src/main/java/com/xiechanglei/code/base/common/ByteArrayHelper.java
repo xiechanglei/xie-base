@@ -21,7 +21,7 @@ public class ByteArrayHelper {
      * 将16进制字符串转换为byte数组
      */
     public static byte[] of(String hexString) {
-        if(hexString == null){
+        if (hexString == null) {
             return new byte[0];
         }
         hexString = hexString.replaceAll("[\\s\r]+", "");
@@ -59,8 +59,18 @@ public class ByteArrayHelper {
         return true;
     }
 
-    public static void main(String[] args) {
-
+    /**
+     * 将字节数组转换为int
+     */
+    public static int toInt(byte[] bytes) {
+        if (bytes == null || bytes.length == 0) {
+            return 0;
+        }
+        int result = 0;
+        for (int i = 0; i < bytes.length; i++) {
+            result += (bytes[i] & 0xFF) << (8 * (bytes.length - i - 1));
+        }
+        return result;
     }
 
 }
