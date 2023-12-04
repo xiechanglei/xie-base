@@ -2,12 +2,13 @@ package com.xiechanglei.code.base.netty.init;
 
 import com.xiechanglei.code.base.netty.annotation.ChannelType;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.*;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.oio.OioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
-
-import java.util.List;
 
 public class NettyClientBuilder {
     @SuppressWarnings("all")
@@ -15,9 +16,8 @@ public class NettyClientBuilder {
                               int port,
                               ChannelType channelType,
                               Class<? extends Channel> channelClass,
-                              List<ChannelHandler> channelHandlers,
-                              NettyConfigBuilder configBuilder
-    ) throws Exception {
+                              NettyConfigBuilder configBuilder,
+                              ChannelInitializer<SocketChannel> channelInitializer) throws Exception {
         Bootstrap bootstrap = new Bootstrap();
         try {
             // 1.设置channel类型
@@ -26,12 +26,7 @@ public class NettyClientBuilder {
             // 3.设置线程队列中等待连接的个数
             bootstrap.option(ChannelOption.TCP_NODELAY, true);
             bootstrap.option(ChannelOption.SO_REUSEADDR, true);
-            bootstrap.handler(new ChannelInitializer<SocketChannel>() {
-                @Override
-                public void initChannel(SocketChannel ch) {
-                    channelHandlers.forEach(ch.pipeline()::addLast);
-                }
-            });
+            bootstrap.handler(channelInitializer);
             if (configBuilder != null) {
                 configBuilder.config(bootstrap);
             }
