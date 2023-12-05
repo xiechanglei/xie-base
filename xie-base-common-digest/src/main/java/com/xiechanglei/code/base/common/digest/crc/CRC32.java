@@ -9,52 +9,37 @@ public class CRC32 {
      * 静态方法，直接计算CRC32
      */
     public static long calculate(byte[] data) {
-        long crc = 0xffffffffL;
-        for (byte b : data) {
-            crc = _ca(crc, b);
-        }
-        return crc;
+        CRC32 crc321 = new CRC32();
+        crc321.update(data);
+        return crc321.getValue();
     }
 
     public static byte[] calculateToByteArray(byte[] data) {
-        long crc = calculate(data);
-        return new byte[]{(byte) (crc & 0xFF), (byte) ((crc >> 8) & 0xFF), (byte) ((crc >> 16) & 0xFF), (byte) ((crc >> 24) & 0xFF)};
+        return crc32ToByteArray(calculate(data));
     }
 
-    long crc = 0xffffffffL;
+    java.util.zip.CRC32 crc32 = new java.util.zip.CRC32();
 
     public byte[] update(byte[] data) {
-        if (data != null) {
-            for (byte b : data) {
-                update(b);
-            }
-        }
+        crc32.update(data);
         return data;
     }
 
     public byte update(byte b) {
-        this.crc = _ca(this.crc, b);
+        crc32.update(b);
         return b;
     }
 
     public long getValue() {
-        return this.crc;
+        return this.crc32.getValue();
     }
 
     public byte[] getByteArrayValue() {
-        return new byte[]{(byte) (this.crc & 0xFF), (byte) ((this.crc >> 8) & 0xFF), (byte) ((this.crc >> 16) & 0xFF), (byte) ((this.crc >> 24) & 0xFF)};
+        long crc = getValue();
+        return crc32ToByteArray(crc);
     }
 
-    private static long _ca(long c, byte b) {
-        c ^= b & 0xFF;
-        for (int i = 0; i < 8; i++) {
-            if ((c & 1) == 1) {
-                c = (c >>> 1) ^ 0xEDB88320L;
-            } else {
-                c = c >>> 1;
-            }
-        }
-        return c;
+    private static byte[] crc32ToByteArray(long crc) {
+        return new byte[]{(byte) ((crc >> 24) & 0xFF), (byte) ((crc >> 16) & 0xFF), (byte) ((crc >> 8) & 0xFF), (byte) (crc & 0xFF)};
     }
-
 }
