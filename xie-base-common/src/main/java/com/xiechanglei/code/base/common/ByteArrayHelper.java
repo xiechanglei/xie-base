@@ -46,8 +46,9 @@ public class ByteArrayHelper {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        for (byte b : bytes) {
-            sb.append(Integer.toHexString(b & 0xFF));
+        for (byte b : bytes) {//补充0
+            String hexString = Integer.toHexString(b & 0xFF);
+            sb.append(hexString.length() == 1 ? "0" + hexString : hexString);
         }
         return sb.toString();
     }
@@ -83,6 +84,7 @@ public class ByteArrayHelper {
         }
         return result;
     }
+
     /**
      * 将字节数组转换为int
      */
@@ -95,6 +97,18 @@ public class ByteArrayHelper {
             result += (bytes[i] & 0xFF) << (8 * (bytes.length - i - 1));
         }
         return result;
+    }
+
+    public static byte[] fromInt(int value) {
+        return new byte[]{(byte) ((value >> 24) & 0xFF), (byte) ((value >> 16) & 0xFF), (byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF)};
+    }
+
+    public static byte[] fromShort(short value) {
+        return new byte[]{(byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF)};
+    }
+
+    public static byte[] fromLong(long value) {
+        return new byte[]{(byte) ((value >> 56) & 0xFF), (byte) ((value >> 48) & 0xFF), (byte) ((value >> 40) & 0xFF), (byte) ((value >> 32) & 0xFF), (byte) ((value >> 24) & 0xFF), (byte) ((value >> 16) & 0xFF), (byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF)};
     }
 
     /**
@@ -110,4 +124,5 @@ public class ByteArrayHelper {
         }
         return result;
     }
+
 }
