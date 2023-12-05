@@ -39,6 +39,20 @@ public class ByteArrayHelper {
     }
 
     /**
+     * 将字节数组转换为16进制字符串
+     */
+    public static String toHexString(byte[] bytes) {
+        if (bytes == null) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bytes) {
+            sb.append(Integer.toHexString(b & 0xFF));
+        }
+        return sb.toString();
+    }
+
+    /**
      * 判断两个字节数组是否相等
      */
     public static boolean isSame(byte[] bytes1, byte[] bytes2) {
@@ -96,5 +110,4 @@ public class ByteArrayHelper {
         }
         return result;
     }
-
 }

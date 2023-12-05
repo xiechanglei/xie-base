@@ -4,7 +4,6 @@ package com.xiechanglei.code.base.common.digest.crc;
  * CRC32校验
  */
 public class CRC32 {
-    private static final int POLYNOMIAL = 0xEDB88320;
 
     /**
      * 静态方法，直接计算CRC32
@@ -50,11 +49,12 @@ public class CRC32 {
         c ^= b & 0xFF;
         for (int i = 0; i < 8; i++) {
             if ((c & 1) == 1) {
-                c = (c >>> 1) ^ POLYNOMIAL;
+                c = (c >>> 1) ^ 0xEDB88320L;
             } else {
                 c = c >>> 1;
             }
         }
         return c;
     }
+
 }

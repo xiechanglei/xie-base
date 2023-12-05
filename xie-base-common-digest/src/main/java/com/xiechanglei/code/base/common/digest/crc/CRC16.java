@@ -4,7 +4,6 @@ package com.xiechanglei.code.base.common.digest.crc;
  * CRC16校验
  */
 public class CRC16 {
-    private static final int POLYNOMIAL = 0xA001;
 
     /**
      * 静态方法，直接计算CRC16
@@ -50,7 +49,7 @@ public class CRC16 {
         c ^= b & 0xFF;
         for (int i = 0; i < 8; i++) {
             if ((c & 1) == 1) {
-                c = (c >>> 1) ^ POLYNOMIAL;
+                c = (c >>> 1) ^ 0xA001;
             } else {
                 c = c >>> 1;
             }
