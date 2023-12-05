@@ -59,6 +59,16 @@ public class ByteArrayHelper {
         return true;
     }
 
+    public static short toShort(byte[] bytes) {
+        if (bytes == null || bytes.length == 0) {
+            return 0;
+        }
+        short result = 0;
+        for (int i = 0; i < bytes.length; i++) {
+            result += (short) ((short) (bytes[i] & 0xFF) << (8 * (bytes.length - i - 1)));
+        }
+        return result;
+    }
     /**
      * 将字节数组转换为int
      */
