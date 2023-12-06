@@ -33,3 +33,20 @@ yarn create xie-base
 - [x] [xie-base-common-reflect](./xie-base-common-reflect/README.md)
 - [x] [xie-base-web](./xie-base-web/README.md)
 - [x] [xie-base-rbac](./xie-base-rbac/README.md)
+
+
+
+### 4.底层模块maven变量注入
+```xml
+<build>
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </resource>
+    </resources>
+    </build>
+```

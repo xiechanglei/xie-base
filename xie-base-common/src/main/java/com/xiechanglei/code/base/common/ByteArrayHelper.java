@@ -32,8 +32,9 @@ public class ByteArrayHelper {
             throw new IllegalArgumentException("hexString length must be even");
         }
         byte[] result = new byte[hexString.length() / 2];
+        char[] charArray = hexString.toCharArray();
         for (int i = 0; i < hexString.length(); i += 2) {
-            result[i / 2] = (byte) Integer.parseInt(hexString.substring(i, i + 2), 16);
+            result[i / 2] = (byte) Integer.parseInt(new String(new char[]{charArray[i], charArray[i + 1]}), 16);
         }
         return result;
     }
@@ -47,8 +48,7 @@ public class ByteArrayHelper {
         }
         StringBuilder sb = new StringBuilder();
         for (byte b : bytes) {//补充0
-            String hexString = Integer.toHexString(b & 0xFF);
-            sb.append(hexString.length() == 1 ? "0" + hexString : hexString);
+            sb.append(ByteHelper.toHexString(b));
         }
         return sb.toString();
     }
@@ -99,17 +99,6 @@ public class ByteArrayHelper {
         return result;
     }
 
-    public static byte[] fromInt(int value) {
-        return new byte[]{(byte) ((value >> 24) & 0xFF), (byte) ((value >> 16) & 0xFF), (byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF)};
-    }
-
-    public static byte[] fromShort(short value) {
-        return new byte[]{(byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF)};
-    }
-
-    public static byte[] fromLong(long value) {
-        return new byte[]{(byte) ((value >> 56) & 0xFF), (byte) ((value >> 48) & 0xFF), (byte) ((value >> 40) & 0xFF), (byte) ((value >> 32) & 0xFF), (byte) ((value >> 24) & 0xFF), (byte) ((value >> 16) & 0xFF), (byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF)};
-    }
 
     /**
      * 将字节数组转换为long
@@ -124,5 +113,20 @@ public class ByteArrayHelper {
         }
         return result;
     }
+
+
+    public static byte[] fromShort(short value) {
+        return new byte[]{(byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF)};
+    }
+
+    public static byte[] fromInt(int value) {
+        return new byte[]{(byte) ((value >> 24) & 0xFF), (byte) ((value >> 16) & 0xFF), (byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF)};
+    }
+
+
+    public static byte[] fromLong(long value) {
+        return new byte[]{(byte) ((value >> 56) & 0xFF), (byte) ((value >> 48) & 0xFF), (byte) ((value >> 40) & 0xFF), (byte) ((value >> 32) & 0xFF), (byte) ((value >> 24) & 0xFF), (byte) ((value >> 16) & 0xFF), (byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF)};
+    }
+
 
 }

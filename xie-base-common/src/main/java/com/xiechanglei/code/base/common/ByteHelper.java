@@ -13,4 +13,9 @@ public class ByteHelper {
         }
         return (byte) Integer.parseInt(hexString, 16);
     }
+
+    public static String toHexString(byte b) {
+        String hexString = Integer.toHexString(b & 0xFF);
+        return hexString.length() == 1 ? "0" + hexString : hexString;
+    }
 }
