@@ -5,21 +5,6 @@ package com.xiechanglei.code.base.common.digest.crc;
  */
 public class CRC16 {
 
-    /**
-     * 静态方法，直接计算CRC16
-     */
-    public static int calculate(byte[] data) {
-        int crc = 0xFFFF;
-        for (byte b : data) {
-            crc = _ca(crc, b);
-        }
-        return crc;
-    }
-
-    public static byte[] calculateToByteArray(byte[] data) {
-        int crc = calculate(data);
-        return new byte[]{(byte) (crc & 0xFF), (byte) ((crc >> 8) & 0xFF)};
-    }
 
     int crc = 0xFFFF;
 
@@ -42,7 +27,27 @@ public class CRC16 {
     }
 
     public byte[] getByteArrayValue() {
-        return new byte[]{(byte) (this.crc & 0xFF), (byte) ((this.crc >> 8) & 0xFF)};
+        return getByteArrayValue(this.crc);
+    }
+
+
+    /**
+     * 静态方法，直接计算CRC16
+     */
+    public static int calculate(byte[] data) {
+        int crc = 0xFFFF;
+        for (byte b : data) {
+            crc = _ca(crc, b);
+        }
+        return crc;
+    }
+
+    public static byte[] calculateToByteArray(byte[] data) {
+        return getByteArrayValue(calculate(data));
+    }
+
+    private static byte[] getByteArrayValue(int crc) {
+        return new byte[]{(byte) (crc & 0xFF), (byte) ((crc >> 8) & 0xFF)};
     }
 
     private static int _ca(int c, byte b) {
