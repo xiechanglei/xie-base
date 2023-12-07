@@ -43,14 +43,15 @@ public class ByteArrayHelper {
      * 将字节数组转换为16进制字符串
      */
     public static String toHexString(byte[] bytes) {
-        if (bytes == null || bytes.length == 0) {
-            return "";
-        }
         return toHexString(bytes, 0, bytes.length);
     }
 
+    public static String toHexString(byte[] bytes, int end) {
+        return toHexString(bytes, 0, end);
+    }
+
     public static String toHexString(byte[] bytes, int start, int end) {
-        if (bytes == null) {
+        if (bytes == null || bytes.length == 0) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
