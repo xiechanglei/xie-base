@@ -2,6 +2,7 @@ package com.xiechanglei.code.base.rbac.controller;
 
 import com.xiechanglei.code.base.rbac.annotation.RbacAuth;
 import com.xiechanglei.code.base.rbac.entity.RbacAuthRole;
+import com.xiechanglei.code.base.rbac.internal.ErrorCode;
 import com.xiechanglei.code.base.rbac.internal.RolePermission;
 import com.xiechanglei.code.base.rbac.repo.RbacAuthRoleRepository;
 import com.xiechanglei.code.base.rbac.repo.RbacAuthUserRoleRepository;
@@ -39,7 +40,7 @@ public class RoleController {
     @RequestMapping("/rbac/role/add")
     public void addRole(String roleName) {
         if (rbacAuthRoleRepository.existsByRoleName(roleName)) {
-            throw MessageException.of("角色名称已存在");
+            throw MessageException.of("角色名称已存在", ErrorCode.ROLE_EXISTS);
         }
         rbacAuthRoleRepository.save(RbacAuthRole.create(roleName));
     }
@@ -51,7 +52,7 @@ public class RoleController {
     @RequestMapping("/rbac/role/delete")
     public void deleteRole(String roleId) {
         if (rbacAuthUserRoleRepository.existsByRoleId(roleId)) {
-            throw MessageException.of("角色下有用户，不能删除");
+            throw MessageException.of("角色下有用户，不能删除", ErrorCode.ROLE_CAN_NOT_DELETE);
         }
         rbacAuthRoleRepository.deleteById(roleId);
     }
@@ -64,7 +65,7 @@ public class RoleController {
     public void updateRole(String roleId, String roleName) {
         RbacAuthRole byRoleName = rbacAuthRoleRepository.findByRoleName(roleName);
         if (byRoleName != null && !byRoleName.getId().equals(roleId)) {
-            throw MessageException.of("角色名称已存在");
+            throw MessageException.of("角色名称已存在", ErrorCode.ROLE_EXISTS);
         }
         rbacAuthRoleRepository.updateRoleNameById(roleName, roleId);
     }

@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import static com.xiechanglei.code.base.common.bean.message.MessageResponse.UNKNOWN_ERROR_CODE;
+
 /**
  * 统一异常处理
  */
@@ -16,11 +18,11 @@ public class ExceptionAdvice {
     @ExceptionHandler(Exception.class)
     public MessageResponse defaultHandle(Exception e) {
         e.printStackTrace();
-        return MessageResponse.fail("系统错误");
+        return MessageResponse.fail("系统错误", UNKNOWN_ERROR_CODE);
     }
 
     @ExceptionHandler(MessageException.class)
     public MessageResponse handleMessageException(MessageException e) {
-        return MessageResponse.fail(e.getMessage());
+        return MessageResponse.fail(e.getMessage(), e.getCode());
     }
 }
