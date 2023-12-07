@@ -128,5 +128,21 @@ public class ByteArrayHelper {
         return new byte[]{(byte) ((value >> 56) & 0xFF), (byte) ((value >> 48) & 0xFF), (byte) ((value >> 40) & 0xFF), (byte) ((value >> 32) & 0xFF), (byte) ((value >> 24) & 0xFF), (byte) ((value >> 16) & 0xFF), (byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF)};
     }
 
+    /**
+     * 合并
+     */
+    public static byte[] merge(byte[]... bytes) {
+        int length = 0;
+        for (byte[] aByte : bytes) {
+            length += aByte.length;
+        }
+        byte[] result = new byte[length];
+        int index = 0;
+        for (byte[] aByte : bytes) {
+            System.arraycopy(aByte, 0, result, index, aByte.length);
+            index += aByte.length;
+        }
+        return result;
+    }
 
 }
