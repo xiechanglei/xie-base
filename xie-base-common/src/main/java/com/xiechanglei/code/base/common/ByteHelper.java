@@ -15,7 +15,6 @@ public class ByteHelper {
     }
 
     public static String toHexString(byte b) {
-        String hexString = Integer.toHexString(b & 0xFF);
-        return hexString.length() == 1 ? "0" + hexString : hexString;
+        return String.format("%02X", b);
     }
 }
