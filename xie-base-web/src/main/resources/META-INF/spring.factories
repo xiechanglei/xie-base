@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.xiechanglei.code.base.web.XieBaseWebAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=io.github.xiechanglei.base.web.XieBaseWebAutoConfiguration

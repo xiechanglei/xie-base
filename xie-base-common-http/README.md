@@ -18,7 +18,7 @@
 
 ### 2.2. 使用示例
 
-#### 2.2.1. `com.xiechanglei.code.base.common.http.HttpHelper`
+#### 2.2.1. `io.github.xiechanglei.base.common.http.HttpHelper`
 
 HTTP请求工具类，用于发送HTTP请求。
 

@@ -18,7 +18,7 @@
 
 ### 2.2. 使用示例
 
-#### 2.2.1. `com.xiechanglei.code.base.common.jpa.entity.UUIDIdEntity`
+#### 2.2.1. `entity.io.github.xiechanglei.base.common.jpa.UUIDIdEntity`
 
 `UUIDIdEntity` 是一个抽象类，提供了一个 `id` 字段，类型为 `String`，并且使用 `UUID` 作为主键生成策略。
 
@@ -30,7 +30,7 @@ public class User extends UUIDIdEntity {
 }
 ```
 
-#### 2.2.2. `com.xiechanglei.code.base.common.jpa.entity.SnowFlakeIdEntity`
+#### 2.2.2. `entity.io.github.xiechanglei.base.common.jpa.SnowFlakeIdEntity`
 
 `SnowFlakeIdEntity` 是一个抽象类，提供了一个 `id` 字段，类型为 `String`，并且使用雪花算法作为主键生成策略。
 
@@ -42,7 +42,7 @@ public class User extends SnowFlakeIdEntity {
 }
 ```
 
-#### 2.2.3. `com.xiechanglei.code.base.common.jpa.entity.UUIDIdAndTimeFieldEntity`
+#### 2.2.3. `entity.io.github.xiechanglei.base.common.jpa.UUIDIdAndTimeFieldEntity`
 
 `UUIDIdAndTimeFieldEntity` 是一个抽象类，提供了一个 `id` 字段，类型为 `String`，并且使用 `UUID` 作为主键生成策略，同时提供了 `createTime` 和 `updateTime` 字段，类型为 `Date`，并且在创建和更新时自动填充。
 
@@ -54,7 +54,7 @@ public class User extends UUIDIdAndTimeFieldEntity {
 }
 ```
 
-#### 2.2.4. `com.xiechanglei.code.base.common.jpa.entity.SnowFlakeIdAndTimeFieldEntity`
+#### 2.2.4. `entity.io.github.xiechanglei.base.common.jpa.SnowFlakeIdAndTimeFieldEntity`
 
 `SnowFlakeIdAndTimeFieldEntity` 是一个抽象类，提供了一个 `id` 字段，类型为 `String`，并且使用雪花算法作为主键生成策略，同时提供了 `createTime` 和 `updateTime` 字段，类型为 `Date`，并且在创建和更新时自动填充。
 
@@ -66,7 +66,7 @@ public class User extends SnowFlakeIdAndTimeFieldEntity {
 }
 ```
 
-#### 2.2.5. `com.xiechanglei.code.base.common.jpa.entity.BaseEntity`
+#### 2.2.5. `entity.io.github.xiechanglei.base.common.jpa.BaseEntity`
 
 `BaseEntity` 是一个接口，提供了两个方法，一个是`pure`，将对象的id，createTime，updateTime设置为null,使他变成一个纯粹的业务数据承载实体，防止前端传递一些不可覆盖的数据
 

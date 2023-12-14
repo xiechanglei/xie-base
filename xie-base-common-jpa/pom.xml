@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.xiechanglei.code</groupId>
+        <groupId>io.github.xiechanglei</groupId>
         <artifactId>xie-base</artifactId>
         <version>${revision}</version>
     </parent>
@@ -29,7 +29,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.xiechanglei.code</groupId>
+            <groupId>io.github.xiechanglei</groupId>
             <artifactId>xie-base-common-reflect</artifactId>
         </dependency>
     </dependencies>

@@ -18,7 +18,7 @@
 
 ### 2.2. 使用示例
 
-#### 2.2.1. `com.xiechanglei.code.base.common.json.JsonHelper`
+#### 2.2.1. `io.github.xiechanglei.base.common.json.JsonHelper`
 
 `JsonHelper` 是一个工具类，提供了一些 JSON 相关的方法。
 
@@ -29,11 +29,11 @@ String json = JsonHelper.toJson(object);
 Object object = JsonHelper.fromJson(json, Object.class);
 ```
 
-#### 2.2.2. `com.xiechanglei.code.base.common.json.JsonContainerAdapter`
+#### 2.2.2. `io.github.xiechanglei.base.common.json.JsonContainerAdapter`
 
 `JsonContainerAdapter` 是一个抽象类，抽象了一个json容器，提供了一些方法，用于方便的读取json中的数据
 
-#### 2.2.3. `com.xiechanglei.code.base.common.json.TextJsonContainer`
+#### 2.2.3. `io.github.xiechanglei.base.common.json.TextJsonContainer`
 
 `TextJsonContainer` 是 `JsonContainerAdapter` 的一个实现类，用于读取文本类型的json数据
 

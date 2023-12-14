@@ -27,7 +27,7 @@ MD5加密工具类，用于生成MD5加密的字符串。
 String md5 = MD5Util.md5("123456");
 ```
 
-#### 2.2.2. `com.xiechanglei.code.base.common.digest.aes.AESHelper`
+#### 2.2.2. `aes.io.github.xiechanglei.base.common.digest.AESHelper`
 
 AES加密工具类，用于生成AES加密的字符串。
 

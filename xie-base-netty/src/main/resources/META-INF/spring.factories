@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.xiechanglei.code.base.netty.XieNettyAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=io.github.xiechanglei.base.netty.XieNettyAutoConfiguration

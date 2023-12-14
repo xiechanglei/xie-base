@@ -18,7 +18,7 @@
 
 ### 2.2. 使用示例
 
-#### 2.2.1. `com.xiechanglei.code.base.common.reflect.FieldHelper`
+#### 2.2.1. `io.github.xiechanglei.base.common.reflect.FieldHelper`
 
 `FieldHelper` 是一个工具类，提供了一些与字段相关的方法。
 
