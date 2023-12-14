@@ -1,5 +1,6 @@
 package com.xiechanglei.code.base.web.config;
 
+import com.xiechanglei.code.base.web.properties.BaseWebConfigProperties;
 import com.xiechanglei.code.base.web.resolver.DateTypeResolver;
 import com.xiechanglei.code.base.web.resolver.PageTypeResolver;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,7 @@ import java.util.List;
 public class XieBaseWebMvcConfig implements WebMvcConfigurer {
     private final DateTypeResolver dateTypeResolver;
     private final PageTypeResolver pageTypeResolver;
+    private final BaseWebConfigProperties baseWebConfigProperties;
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {

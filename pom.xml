@@ -27,19 +27,26 @@
         <module>xie-base-common-digest</module>
         <module>xie-base-common-jpa</module>
         <module>xie-base-common-reflect</module>
-        <module>xie-base-rbac</module>
-        <module>xie-base-web</module>
         <module>xie-base-common-bean</module>
         <module>xie-base-common-http</module>
         <module>xie-base-common-json</module>
+        <module>xie-base-common-async</module>
+        <module>xie-base-common</module>
+        <module>xie-base-rbac</module>
+        <module>xie-base-web</module>
         <module>xie-base-test</module>
         <module>xie-base-netty</module>
-        <module>xie-base-common</module>
     </modules>
 
 
     <dependencyManagement>
         <dependencies>
+            <!-- common modules -->
+            <dependency>
+                <groupId>com.xiechanglei.code</groupId>
+                <artifactId>xie-base-common-async</artifactId>
+                <version>${revision}</version>
+            </dependency>
             <dependency>
                 <groupId>com.xiechanglei.code</groupId>
                 <artifactId>xie-base-common-digest</artifactId>
@@ -55,16 +62,7 @@
                 <artifactId>xie-base-common-reflect</artifactId>
                 <version>${revision}</version>
             </dependency>
-            <dependency>
-                <groupId>com.xiechanglei.code</groupId>
-                <artifactId>xie-base-rbac</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.xiechanglei.code</groupId>
-                <artifactId>xie-base-web</artifactId>
-                <version>${revision}</version>
-            </dependency>
+
             <dependency>
                 <groupId>com.xiechanglei.code</groupId>
                 <artifactId>xie-base-common-bean</artifactId>
@@ -82,14 +80,27 @@
             </dependency>
             <dependency>
                 <groupId>com.xiechanglei.code</groupId>
-                <artifactId>xie-base-netty</artifactId>
+                <artifactId>xie-base-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- base modules -->
+            <dependency>
+                <groupId>com.xiechanglei.code</groupId>
+                <artifactId>xie-base-rbac</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.xiechanglei.code</groupId>
-                <artifactId>xie-base-common</artifactId>
+                <artifactId>xie-base-web</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>com.xiechanglei.code</groupId>
+                <artifactId>xie-base-netty</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

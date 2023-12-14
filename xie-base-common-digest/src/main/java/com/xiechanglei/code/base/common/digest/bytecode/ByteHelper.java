@@ -1,4 +1,4 @@
-package com.xiechanglei.code.base.common;
+package com.xiechanglei.code.base.common.digest.bytecode;
 
 /**
  * 字节工具类

@@ -14,6 +14,8 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+import java.util.Objects;
+
 /**
  * 对返回值进行统一封装
  */
@@ -26,7 +28,9 @@ public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
     public boolean supports(MethodParameter returnType, @NonNull Class<? extends HttpMessageConverter<?>> aClass) {
-        return !returnType.getGenericParameterType().equals(MessageResponse.class);
+        return returnType.getDeclaringClass().getAnnotation(NoResponseAdvice.class) == null &&
+                Objects.requireNonNull(returnType.getMethod()).getAnnotation(NoResponseAdvice.class) == null
+                && !returnType.getGenericParameterType().equals(MessageResponse.class);
     }
 
     @Override

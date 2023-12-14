@@ -10,4 +10,35 @@
     </parent>
     <artifactId>xie-base-common</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.xiechanglei.code</groupId>
+            <artifactId>xie-base-common-async</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xiechanglei.code</groupId>
+            <artifactId>xie-base-common-bean</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xiechanglei.code</groupId>
+            <artifactId>xie-base-common-digest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xiechanglei.code</groupId>
+            <artifactId>xie-base-common-http</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xiechanglei.code</groupId>
+            <artifactId>xie-base-common-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xiechanglei.code</groupId>
+            <artifactId>xie-base-common-json</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xiechanglei.code</groupId>
+            <artifactId>xie-base-common-reflect</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

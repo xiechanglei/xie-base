@@ -1,4 +1,4 @@
-package com.xiechanglei.code.base.common.promise;
+package com.xiechanglei.code.base.common.async;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;

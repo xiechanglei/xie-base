@@ -8,12 +8,6 @@
         <artifactId>xie-base</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>xie-base-test</artifactId>
+    <artifactId>xie-base-common-async</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.xiechanglei.code</groupId>
-            <artifactId>xie-base-web</artifactId>
-        </dependency>
-    </dependencies>
 </project>

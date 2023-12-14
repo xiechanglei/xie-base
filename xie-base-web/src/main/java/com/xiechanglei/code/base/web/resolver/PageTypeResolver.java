@@ -34,10 +34,10 @@ public class PageTypeResolver implements HandlerMethodArgumentResolver {
         String str = webRequest.getParameter(parameterName);
         if (str == null) {
             if (parameterName.equals("page")) {
-                return baseWebConfigProperties.getPage();
+                return baseWebConfigProperties.getPageDefaultPage();
             }
             if (parameterName.equals("size")) {
-                return baseWebConfigProperties.getSize();
+                return baseWebConfigProperties.getPageDefaultSize();
             }
             return null;
         }

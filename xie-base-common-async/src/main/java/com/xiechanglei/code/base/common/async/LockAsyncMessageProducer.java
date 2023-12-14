@@ -1,4 +1,4 @@
-package com.xiechanglei.code.base.common.promise;
+package com.xiechanglei.code.base.common.async;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -22,7 +22,6 @@ public class LockAsyncMessageProducer<K, T> implements AsyncMessageProducer<K, T
             keyMap.remove(key);
             throw AwaitTimeoutException.INSTANCE;
         } else {
-            keyMap.remove(key);
             return responseMap.remove(key);
         }
     }

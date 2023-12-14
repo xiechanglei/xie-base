@@ -26,4 +26,8 @@ public class MessageException extends RuntimeException {
     public static MessageException of(String message, int code) {
         return new MessageException(message, code);
     }
+
+    public static MessageException of(ErrorDefinition errorDefinition) {
+        return new MessageException(errorDefinition.getMessage(), errorDefinition.getCode());
+    }
 }

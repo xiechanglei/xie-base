@@ -1,7 +1,8 @@
 package com.xiechanglei.code.base.common.digest.crc;
 
 /**
- * CRC32校验,默认多项式为0x04C11DB7
+ * CRC32校验,默认多项式为0xEDB88320L
+ * 0x04C11DB7
  */
 public class CRC32 {
 

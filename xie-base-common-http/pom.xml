@@ -19,7 +19,6 @@
         <dependency>
             <groupId>com.xiechanglei.code</groupId>
             <artifactId>xie-base-common-json</artifactId>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

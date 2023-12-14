@@ -1,4 +1,4 @@
-package com.xiechanglei.code.base.common.promise;
+package com.xiechanglei.code.base.common.async;
 
 public interface AsyncMessageProducer<K, T> {
 
