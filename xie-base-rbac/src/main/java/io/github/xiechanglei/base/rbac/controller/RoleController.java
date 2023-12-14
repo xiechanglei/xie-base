@@ -19,7 +19,7 @@ import java.util.List;
  */
 @RestController
 @RequiredArgsConstructor
-@ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "use-controller", havingValue = "true")
+@ConditionalOnProperty(prefix = "io.github.xiechanglei.base.rbac", name = "use-controller", havingValue = "true")
 public class RoleController {
     private final RbacAuthRoleRepository rbacAuthRoleRepository;
     private final RbacAuthUserRoleRepository rbacAuthUserRoleRepository;

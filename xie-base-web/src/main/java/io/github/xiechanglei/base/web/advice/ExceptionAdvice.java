@@ -20,7 +20,7 @@ import static io.github.xiechanglei.base.common.bean.message.MessageResponse.UNK
  * 统一异常处理
  */
 @RestControllerAdvice
-@ConditionalOnProperty(prefix = "com.xiechanglei.code.base.web", name = "exception-advice", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "io.github.xiechanglei.base.web", name = "exception-advice", havingValue = "true", matchIfMissing = true)
 @Log4j2
 public class ExceptionAdvice {
 

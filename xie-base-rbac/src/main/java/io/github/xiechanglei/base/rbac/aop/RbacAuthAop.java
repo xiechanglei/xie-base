@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-@ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "io.github.xiechanglei.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
 public class RbacAuthAop {
     private final PermissionService permissionService;
     private final DefaultPermissionService defaultPermissionService;

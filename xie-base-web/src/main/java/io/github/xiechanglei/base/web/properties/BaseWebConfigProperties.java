@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Component
-@ConfigurationProperties(prefix = "com.xiechanglei.code.base.web")
+@ConfigurationProperties(prefix = "io.github.xiechanglei.base.web")
 public class BaseWebConfigProperties {
     private int pageDefaultSize = 20; //分页默认大小
     private int pageDefaultPage = 1; //分页默认页码

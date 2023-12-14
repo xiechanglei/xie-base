@@ -15,6 +15,10 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <revision>2.7.17.1</revision>
+
+        <gpg.passphrase>1234!@#$</gpg.passphrase>
+        <gpg.keyname>613BBEB009739C46518A00F3D11490B5678C19D5</gpg.keyname>
+        <gpg.homedir>/home/xie/.gnupg</gpg.homedir>
     </properties>
 
 
@@ -22,6 +26,43 @@
     <artifactId>xie-base</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
+
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version2.0</name>
+            <url>https://www.apache.org/licenses/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>xiechanglei</name>
+            <email>709955748@qq.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/xiechanglei/xie-base.git</connection>
+        <developerConnection>https://github.com/xiechanglei/xie-base</developerConnection>
+        <url>https://github.com/xiechanglei/xie-base.git</url>
+        <tag>v${project.version}</tag>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+
 
     <modules>
         <module>xie-base-common-digest</module>
@@ -115,6 +156,37 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Javadoc工具 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <additionalJOptions>
+                        <additionalJOption>-Xdoclint:none</additionalJOption>
+                    </additionalJOptions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
                 <version>1.5.0</version>
@@ -130,11 +202,32 @@
                             <goal>flatten</goal>
                         </goals>
                     </execution>
+<!--                    <execution>-->
+<!--                        <id>flatten.clean</id>-->
+<!--                        <phase>install</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>clean</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+                </executions>
+            </plugin>
+            <!-- GPG -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <configuration>
+                    <gpgArguments>
+                        <arg>--pinentry-mode</arg>
+                        <arg>loopback</arg>
+                    </gpgArguments>
+                </configuration>
+                <executions>
                     <execution>
-                        <id>flatten.clean</id>
-                        <phase>install</phase>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
                         <goals>
-                            <goal>clean</goal>
+                            <goal>sign</goal>
                         </goals>
                     </execution>
                 </executions>

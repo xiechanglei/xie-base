@@ -10,7 +10,7 @@
 
 ```xml
 <dependency>
-    <groupId>com.xiechanglei.code</groupId>
+    <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-common-json</artifactId>
     <version>${xie-base.version}</version>
 </dependency>

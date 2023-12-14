@@ -10,7 +10,7 @@
 
 ```xml
 <dependency>
-    <groupId>com.xiechanglei.code</groupId>
+    <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-common-digest</artifactId>
     <version>${xie-base.version}</version>
 </dependency>
@@ -18,7 +18,7 @@
 
 ### 2.2. 使用示例
 
-#### 2.2.1. `com.xiechanglei.code.base.common.digest.md5.MD5Helper`
+#### 2.2.1. `io.github.xiechanglei.base.common.digest.md5.MD5Helper`
 
 MD5加密工具类，用于生成MD5加密的字符串。
 
@@ -27,7 +27,7 @@ MD5加密工具类，用于生成MD5加密的字符串。
 String md5 = MD5Util.md5("123456");
 ```
 
-#### 2.2.2. `aes.io.github.xiechanglei.base.common.digest.AESHelper`
+#### 2.2.2. `io.github.xiechanglei.base.common.digest.aes.AESHelper`
 
 AES加密工具类，用于生成AES加密的字符串。
 

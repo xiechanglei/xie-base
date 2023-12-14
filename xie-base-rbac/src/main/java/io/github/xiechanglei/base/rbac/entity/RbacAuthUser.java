@@ -1,6 +1,6 @@
-//package com.xiechanglei.code.base.rbac.entity;
+//package io.github.xiechanglei.base.rbac.entity;
 //
-//import com.xiechanglei.code.base.common.jpa.entity.UUIDIdAndTimeFieldEntity;
+//import io.github.xiechanglei.base.common.jpa.entity.UUIDIdAndTimeFieldEntity;
 //import lombok.Getter;
 //import lombok.Setter;
 //import org.springframework.data.jpa.domain.support.AuditingEntityListener;

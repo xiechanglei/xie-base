@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Component
 @RequiredArgsConstructor
-@ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "io.github.xiechanglei.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
 public class TokenInterceptor implements HandlerInterceptor, WebMvcConfigurer {
     private final RbacConfigProperties rbacConfigProperties;
     public static final String REQUEST_ATTR_TOKEN_KEY = "BASE_AUTH_TOKEN_INFO";// 存放在request中的token信息的key

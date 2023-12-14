@@ -10,7 +10,7 @@
 
 ```xml
 <dependency>
-    <groupId>com.xiechanglei.code</groupId>
+    <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-web</artifactId>
     <version>${xie-base.version}</version>
 </dependency>
@@ -45,7 +45,7 @@ public void test(Date date){
 
 使用以下配置关闭此功能:
 ```properties
-com.xiechanglei.code.base.web.use-date-resolver=false
+io.github.xiechanglei.base.web.use-date-resolver=false
 ```
 #### 2.2.3. 分页请求参数默认配置
 
@@ -61,13 +61,13 @@ public void test(Integer page, Integer size){
 可以使用spring boot的@RequestParam 进行注解配置，这里增加了一种全局的参数化配置方案(spring boot)：
 ```properties
 # 分页page参数，默认1
-com.xiechanglei.code.base.web.page-default-page=1
+io.github.xiechanglei.base.web.page-default-page=1
 # 分页size参数，默认20
-com.xiechanglei.code.base.web.page-default-size=20
+io.github.xiechanglei.base.web.page-default-size=20
 ```
 使用以下配置关闭此功能:
 ```properties
-com.xiechanglei.code.base.web.use-page-resolver=false
+io.github.xiechanglei.base.web.use-page-resolver=false
 ```
 
 #### 2.2.4. 接口返回类型封装
@@ -116,11 +116,11 @@ throw MessaheException.of(USER_NOT_EXISTS);//{"code":100,"message":"用户不存
 
 如果需要关闭此功能，可以使用以下配置:
 ```properties
-com.xiechanglei.code.base.web.response-advice=false
+io.github.xiechanglei.base.web.response-advice=false
 ```
 
 #### 2.2.5 全局异常处理
 如果需要关闭此功能，可以使用以下配置:
 ```properties
-com.xiechanglei.code.base.web.exception-advice=false
+io.github.xiechanglei.base.web.exception-advice=false
 ```

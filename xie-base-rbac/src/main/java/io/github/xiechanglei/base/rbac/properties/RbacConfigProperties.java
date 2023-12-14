@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 
 @Data
 @Component
-@ConfigurationProperties(prefix = "com.xiechanglei.code.base.rbac")
+@ConfigurationProperties(prefix = "io.github.xiechanglei.base.rbac")
 @Log4j2
 public class RbacConfigProperties {
     public static final String LEVEL_MENU = "menu";

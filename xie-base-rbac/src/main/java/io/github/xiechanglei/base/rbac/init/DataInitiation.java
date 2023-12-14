@@ -23,7 +23,7 @@ import java.util.Map;
  */
 @Component
 @RequiredArgsConstructor
-@ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "io.github.xiechanglei.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
 public class DataInitiation {
     private final RbacAuthMenuRepository rbacAuthMenuRepository;
     private final RbacAuthActionRepository rbacAuthActionRepository;

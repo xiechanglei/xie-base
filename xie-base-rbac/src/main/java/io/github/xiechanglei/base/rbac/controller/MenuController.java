@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "use-controller", havingValue = "true")
+@ConditionalOnProperty(prefix = "io.github.xiechanglei.base.rbac", name = "use-controller", havingValue = "true")
 public class MenuController {
 
 

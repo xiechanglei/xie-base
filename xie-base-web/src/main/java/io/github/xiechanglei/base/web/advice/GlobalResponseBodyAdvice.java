@@ -21,7 +21,7 @@ import java.util.Objects;
  */
 @RestControllerAdvice
 @RequiredArgsConstructor
-@ConditionalOnProperty(prefix = "com.xiechanglei.code.base.web", name = "response-advice", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "io.github.xiechanglei.base.web", name = "response-advice", havingValue = "true", matchIfMissing = true)
 public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     private final ObjectMapper objectMapper;

@@ -1,7 +1,7 @@
-//package com.xiechanglei.code.base.rbac.internal;
+//package io.github.xiechanglei.base.rbac.internal;
 //
-//import com.xiechanglei.code.base.rbac.annotation.AuthAction;
-//import com.xiechanglei.code.base.rbac.annotation.AuthMenu;
+//import io.github.xiechanglei.base.rbac.annotation.AuthAction;
+//import io.github.xiechanglei.base.rbac.annotation.AuthMenu;
 //import org.springframework.stereotype.Component;
 //
 ///**

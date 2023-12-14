@@ -12,7 +12,7 @@ TODO 重新写说明文档
 
 ```xml
 <dependency>
-    <groupId>com.xiechanglei.code</groupId>
+    <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-rbac</artifactId>
     <version>${xie-base.version}</version>
 </dependency>
@@ -43,7 +43,7 @@ RbacAuth 注解可以传递多个操作标识符，用以表示该方法可以�
 
 该参数的名称可以自行配置
 ```properties
-com.xiechanglei.code.base.rbac.tokenname=auth-token
+io.github.xiechanglei.base.rbac.tokenname=auth-token
 ```
 token的生成方式如下：
 ```java
@@ -55,7 +55,7 @@ String token = TokenHandler.encode(new TokenInfo(...))
 权限默认过滤级别为action级别，可以修改为menu级别
 
 ```properties
-com.xiechanglei.code.base.rbac.level=action
+io.github.xiechanglei.base.rbac.level=action
 ```
 
 角色权限数据存储在 rbac_auth_role_ref 表中，字段包括 roleId,authType,menuId,actionId
@@ -67,7 +67,7 @@ com.xiechanglei.code.base.rbac.level=action
 系统会自动维护权限项，将所有的权限项存储在数据库中，如果数据库中不存在该权限项，则会自动创建,可以关闭该功能
 
 ```properties
-com.xiechanglei.code.base.rbac.auto=false
+io.github.xiechanglei.base.rbac.auto=false
 ```
 
 权限使用spring boot bean的方式进行注册，反正你也需要全局维护这些常量
@@ -95,7 +95,7 @@ public interface InternalAuthCode {
 #### 2.2.4. 关闭权限过滤
 
 ```properties
-com.xiechanglei.code.base.rbac.enable=false
+io.github.xiechanglei.base.rbac.enable=false
 ```
 
 

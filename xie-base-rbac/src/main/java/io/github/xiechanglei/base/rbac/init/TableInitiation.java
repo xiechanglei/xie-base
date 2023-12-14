@@ -22,7 +22,7 @@ import java.util.Map;
 
 @Component
 @RequiredArgsConstructor
-@ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "io.github.xiechanglei.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
 public class TableInitiation {
     private final LocalContainerEntityManagerFactoryBean entityManagerFactoryBean;
     private final List<String> managedClassNamesCache = new ArrayList<>();
@@ -63,7 +63,7 @@ public class TableInitiation {
         managedClassNamesCache.clear();
         managedClassNamesCache.addAll(managedClassNames);
         managedClassNamesCache.stream().
-                filter(s -> !s.startsWith("com.xiechanglei.code.base.rbac.entity."))
+                filter(s -> !s.startsWith("io.github.xiechanglei.base.rbac.entity."))
                 .forEach(managedClassNames::remove);
         return persistenceUnitInfo;
     }

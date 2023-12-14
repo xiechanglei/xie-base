@@ -22,7 +22,7 @@ import org.springframework.lang.NonNull;
 @EnableJpaAuditing
 @Configuration
 @RequiredArgsConstructor
-@ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "io.github.xiechanglei.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
 public class RbacInitConfiguration implements ApplicationContextAware {
     private final RbacConfigProperties rbacConfigProperties;
     private final TableInitiation tableInitiation;

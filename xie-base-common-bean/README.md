@@ -10,7 +10,7 @@
 
 ```xml
 <dependency>
-    <groupId>com.xiechanglei.code</groupId>
+    <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-common-bean</artifactId>
     <version>${xie-base.version}</version>
 </dependency>
@@ -18,7 +18,7 @@
 
 ### 2.2. 使用示例
 
-#### 2.2.1. `com.xiechanglei.code.base.common.bean.messag.DataFit`
+#### 2.2.1. `io.github.xiechanglei.base.common.bean.messag.DataFit`
 
 数据填充类，用于生成一些动态的数据对象，通常用于controller中的动态返回对象，或者是测试数据的生成等等。
 
@@ -29,7 +29,7 @@
  String urlParam = dataFit.toUrl();
 ```
 
-#### 2.2.2. `com.xiechanglei.code.base.common.bean.messag.MessageResponse`
+#### 2.2.2. `io.github.xiechanglei.base.common.bean.messag.MessageResponse`
 
 消息响应类，用于controller中的返回对象.
 

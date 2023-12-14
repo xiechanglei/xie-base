@@ -12,7 +12,7 @@ import java.util.Objects;
 
 @Component
 @RequiredArgsConstructor
-@ConditionalOnProperty(prefix = "com.xiechanglei.code.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "io.github.xiechanglei.base.rbac", name = "enable", havingValue = "true", matchIfMissing = true)
 public class DefaultPermissionService {
     private final RbacAuthActionRepository getRbacAuthActionRepository;
 

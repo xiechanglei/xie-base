@@ -19,7 +19,7 @@ import javax.persistence.MappedSuperclass;
 public class UUIDIdEntity implements BaseEntity {
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "com.xiechanglei.code.base.common.jpa.generator.MyUUIDGenerator")
+    @GenericGenerator(name = "uuid", strategy = "io.github.xiechanglei.base.common.jpa.generator.MyUUIDGenerator")
     @Column(length = 32, columnDefinition = "varchar(32) comment '物理主键'")
     private String id;
 }
