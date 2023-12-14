@@ -14,7 +14,7 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <revision>2.7.17.1</revision>
+        <revision>2.7.17.2</revision>
 
         <gpg.passphrase>1234!@#$</gpg.passphrase>
         <gpg.keyname>613BBEB009739C46518A00F3D11490B5678C19D5</gpg.keyname>
