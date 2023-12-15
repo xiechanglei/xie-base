@@ -14,7 +14,7 @@
 <dependency>
     <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-common-json</artifactId>
-    <version>${xie-base.version}</version>
+    <version>2.7.17.2</version>
 </dependency>
 ```
 
@@ -24,7 +24,7 @@ xie-base 依然是一个spring boot的子模块，你可以替换掉spring boot�
 <parent>
     <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base</artifactId>
-    <version>${xie-base.version}</version>
+    <version>2.7.17.2</version>
 </parent>
 
 <dependencies>
@@ -51,6 +51,7 @@ xie-base 依然是一个spring boot的子模块，你可以替换掉spring boot�
 - [x] [xie-base-common-jpa](./xie-base-common-jpa/README.md)
 - [x] [xie-base-common-json](./xie-base-common-json/README.md)
 - [x] [xie-base-common-reflect](./xie-base-common-reflect/README.md)
+- [x] [xie-base-common-function](./xie-base-common-function/README.md)
 - [x] [xie-base-common](./xie-base-common/README.md)
 - [x] [xie-base-netty](./xie-base-netty/README.md)
 - [x] [xie-base-rbac](./xie-base-rbac/README.md)

@@ -72,6 +72,7 @@
         <module>xie-base-common-http</module>
         <module>xie-base-common-json</module>
         <module>xie-base-common-async</module>
+        <module>xie-base-common-function</module>
         <module>xie-base-common</module>
         <module>xie-base-rbac</module>
         <module>xie-base-web</module>
@@ -117,6 +118,11 @@
             <dependency>
                 <groupId>io.github.xiechanglei</groupId>
                 <artifactId>xie-base-common-json</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.xiechanglei</groupId>
+                <artifactId>xie-base-common-function</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
