@@ -17,7 +17,7 @@ import java.util.Date;
 @Setter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class UUIDIdAndTimeFieldEntity implements BaseEntity{
+public class UUIDIdAndTimeFieldEntity {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "io.github.xiechanglei.base.common.jpa.generator.MyUUIDGenerator")

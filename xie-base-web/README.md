@@ -2,7 +2,7 @@
 
 ## 1. 介绍
 
-`xie-base-reflect` 模块提供了一些 spring boot web 的基础配置
+`xie-base-reflect` 模块提供了一些 spring boot web 的基础配置,是基于spring-boot-starter 的一个脚手架
 
 ## 2. 使用
 
@@ -12,7 +12,7 @@
 <dependency>
     <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-web</artifactId>
-    <version>${xie-base.version}</version>
+    <version>2.7.17.3</version>
 </dependency>
 ```
 
@@ -123,4 +123,10 @@ io.github.xiechanglei.base.web.response-advice=false
 如果需要关闭此功能，可以使用以下配置:
 ```properties
 io.github.xiechanglei.base.web.exception-advice=false
+```
+
+#### 2.2.6 全局跨域配置
+默认已经开启了跨域配置，如果需要关闭此功能，可以使用以下配置:
+```properties
+io.github.xiechanglei.base.web.cors=false
 ```

@@ -16,7 +16,7 @@ import javax.persistence.MappedSuperclass;
 @Getter
 @Setter
 @MappedSuperclass
-public class UUIDIdEntity implements BaseEntity {
+public class UUIDIdEntity {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "io.github.xiechanglei.base.common.jpa.generator.MyUUIDGenerator")

@@ -15,7 +15,7 @@ import javax.persistence.MappedSuperclass;
 @Getter
 @Setter
 @MappedSuperclass
-public abstract class SnowFlakeIdEntity implements BaseEntity{
+public abstract class SnowFlakeIdEntity {
     @Id
     @GenericGenerator(name = "snowFlakeIdGenerator", strategy = "io.github.xiechanglei.base.common.jpa.generator.SnowFlakeIdGenerator")
     @GeneratedValue(generator = "snowFlakeIdGenerator")

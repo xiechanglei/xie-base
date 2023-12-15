@@ -17,7 +17,7 @@ import java.util.Date;
 @Setter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public abstract class SnowFlakeIdAndTimeFieldEntity implements BaseEntity{
+public abstract class SnowFlakeIdAndTimeFieldEntity {
     @Id
     @GenericGenerator(name = "snowFlakeIdGenerator", strategy = "io.github.xiechanglei.base.common.jpa.generator.SnowFlakeIdGenerator")
     @GeneratedValue(generator = "snowFlakeIdGenerator")

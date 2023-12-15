@@ -1,9 +1,9 @@
 package io.github.xiechanglei.base.web.resolver;
 
-import io.github.xiechanglei.base.web.properties.BaseWebConfigProperties;
-import org.springframework.lang.NonNull;
+import io.github.xiechanglei.base.web.properties.XieBaseWebConfigProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.MethodParameter;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
@@ -18,7 +18,7 @@ import java.util.Objects;
 @Component
 @RequiredArgsConstructor
 public class PageTypeResolver implements HandlerMethodArgumentResolver {
-    private final BaseWebConfigProperties baseWebConfigProperties;
+    private final XieBaseWebConfigProperties xieBaseWebConfigProperties;
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
@@ -34,10 +34,10 @@ public class PageTypeResolver implements HandlerMethodArgumentResolver {
         String str = webRequest.getParameter(parameterName);
         if (str == null) {
             if (parameterName.equals("page")) {
-                return baseWebConfigProperties.getPageDefaultPage();
+                return xieBaseWebConfigProperties.getPageDefaultPage();
             }
             if (parameterName.equals("size")) {
-                return baseWebConfigProperties.getPageDefaultSize();
+                return xieBaseWebConfigProperties.getPageDefaultSize();
             }
             return null;
         }

@@ -1,6 +1,6 @@
 package io.github.xiechanglei.base.web.config;
 
-import io.github.xiechanglei.base.web.properties.BaseWebConfigProperties;
+import io.github.xiechanglei.base.web.properties.XieBaseWebConfigProperties;
 import io.github.xiechanglei.base.web.resolver.DateTypeResolver;
 import io.github.xiechanglei.base.web.resolver.PageTypeResolver;
 import lombok.RequiredArgsConstructor;
@@ -21,19 +21,25 @@ import java.util.List;
 public class XieBaseWebMvcConfig implements WebMvcConfigurer {
     private final DateTypeResolver dateTypeResolver;
     private final PageTypeResolver pageTypeResolver;
-    private final BaseWebConfigProperties baseWebConfigProperties;
+    private final XieBaseWebConfigProperties xieBaseWebConfigProperties;
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedHeaders("Content-Type", "X-Requested-With", "accept,Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", "auth-token")
-                .allowedMethods("*")
-                .allowedOrigins("*");
+        if (xieBaseWebConfigProperties.isCors()) {
+            registry.addMapping("/**")
+                    .allowedHeaders("Content-Type", "X-Requested-With", "accept,Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", "auth-token")
+                    .allowedMethods("*")
+                    .allowedOrigins("*");
+        }
     }
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-        resolvers.add(dateTypeResolver);
-        resolvers.add(pageTypeResolver);
+        if (xieBaseWebConfigProperties.isUseDateResolver()) {
+            resolvers.add(dateTypeResolver);
+        }
+        if (xieBaseWebConfigProperties.isUsePageResolver()) {
+            resolvers.add(pageTypeResolver);
+        }
     }
 }

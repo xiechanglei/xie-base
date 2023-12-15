@@ -9,5 +9,11 @@
         <version>${revision}</version>
     </parent>
     <artifactId>xie-base-common-bean</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

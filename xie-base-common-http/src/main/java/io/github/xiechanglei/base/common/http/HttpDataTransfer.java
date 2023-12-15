@@ -91,10 +91,4 @@ public class HttpDataTransfer {
         }
         return contentType(HttpContentType.JSON);
     }
-
-
-    public interface HttpDataTransferProvider {
-        void opera(HttpDataTransfer httpDataTransfer);
-    }
-
 }

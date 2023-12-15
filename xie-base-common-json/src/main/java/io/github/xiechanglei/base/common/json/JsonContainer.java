@@ -3,13 +3,13 @@ package io.github.xiechanglei.base.common.json;
 import java.util.Map;
 
 public interface JsonContainer {
-    String body();
-
     <T> T readJson(String path, Class<T> clazz);
+
     /**
      * toMap
      */
-    default Map readJson() {
+    @SuppressWarnings("unchecked")
+    default Map<String, Object> readJson() {
         return this.readJson("$", Map.class);
     }
 
@@ -19,6 +19,5 @@ public interface JsonContainer {
     default <T> T readJson(Class<T> clazz) {
         return this.readJson("$", clazz);
     }
-
 
 }

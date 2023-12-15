@@ -8,29 +8,34 @@
 <dependency>
     <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-common-function</artifactId>
-    <version>2.7.17.2</version>
+    <version>2.7.17.3</version>
 </dependency>
 ```
 
 ### SimpleFunction
 Example:
 ```java
-public static void doSomeThing(Integer data, SimpleFunction<Integer, String> function) {
-    String result = function.process(data);
-}
-
 public static void main(String[]args){
-    doSomeThing(123, data -> "zhangsan");
+    SimpleFunction<Integer, String> doSomeThing = data -> "zhangsan";
+    String res = doSomeThing(123);
+}
+```
+
+### SimpleVoidFunction
+Example:
+```java
+public static void main(String[]args){
+    SimpleVoidFunction<String> log = System.out::println;
+    log("zhangsan");
 }
 ```
 
 ### ComposeFunction
 Example:
 ```java
-public static void doSomeThing(Integer data1,Integer data2, ComposeFunction<Integer, String> function) {
-    String result = function.process(data1,data2);
-}
+
 public static void main(String[]args){
-    doSomeThing(123,456, (data1,data2) -> "zhangsan");
+    ComposeFunction<Integer, Integer> max = (x,y) -> x > y ? x:y;
+    max(1,2);
 }
 ```

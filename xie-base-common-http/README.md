@@ -1,24 +1,18 @@
 # xie-base-common-http HTTP 模块
 
-## 1. 介绍
-
 `xie-base-common-http` 模块是 `xie-base` 项目的子模块，主要用于提供一些通用的HTTP请求工具类。
 
-## 2. 使用
-
-### 2.1. 引入依赖
+引入依赖
 
 ```xml
 <dependency>
     <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-common-http</artifactId>
-    <version>${xie-base.version}</version>
+    <version>2.7.17.3</version>
 </dependency>
 ```
 
-### 2.2. 使用示例
-
-#### 2.2.1. `io.github.xiechanglei.base.common.http.HttpHelper`
+### HttpHelper
 
 HTTP请求工具类，用于发送HTTP请求。
 

@@ -1,6 +1,5 @@
 package io.github.xiechanglei.base.rbac.entity;
 
-import io.github.xiechanglei.base.common.jpa.entity.BaseEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

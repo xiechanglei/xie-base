@@ -8,7 +8,7 @@
 <dependency>
     <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-common-digest</artifactId>
-    <version>2.7.17.2</version>
+    <version>2.7.17.3</version>
 </dependency>
 ```
 

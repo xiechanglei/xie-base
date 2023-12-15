@@ -3,6 +3,6 @@ package io.github.xiechanglei.base.common.function;
 /**
  * 简单函数
  */
-public interface SimpleFunction<T, R> {
-    R apply(T t);
+public interface SimpleVoidFunction<T> {
+    void apply(T t);
 }

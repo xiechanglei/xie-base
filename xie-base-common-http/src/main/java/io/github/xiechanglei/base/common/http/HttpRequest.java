@@ -1,5 +1,6 @@
 package io.github.xiechanglei.base.common.http;
 
+import io.github.xiechanglei.base.common.function.SimpleVoidFunction;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 
@@ -11,8 +12,8 @@ public class HttpRequest {
     /**
      * 塞数据
      */
-    public HttpRequest transfer(HttpDataTransfer.HttpDataTransferProvider provider) {
-        provider.opera(httpDataTransfer);
+    public HttpRequest transfer(SimpleVoidFunction<HttpDataTransfer> provider) {
+        provider.apply(httpDataTransfer);
         return this;
     }
 
@@ -22,7 +23,7 @@ public class HttpRequest {
     }
 
     public HttpResponse post(String url) throws IOException {
-        return  request(url, "POST");
+        return request(url, "POST");
     }
 
     public HttpResponse request(String url, String method) throws IOException {
@@ -30,11 +31,11 @@ public class HttpRequest {
     }
     //下载东西
 
-    private HttpResponse parse(Connection.Response response)  {
+    private HttpResponse parse(Connection.Response response) {
         return new HttpResponse(response);
     }
 
-    private Connection buildConnection(String url)  {
+    private Connection buildConnection(String url) {
         Connection connection = Jsoup
                 .connect(url)
                 .cookies(httpDataTransfer.getCookies())

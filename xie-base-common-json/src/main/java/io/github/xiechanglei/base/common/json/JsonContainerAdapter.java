@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 public abstract class JsonContainerAdapter implements JsonContainer {
     private DocumentContext documentContext;
 
+    public abstract String body();
 
     /**
      * to Object with path

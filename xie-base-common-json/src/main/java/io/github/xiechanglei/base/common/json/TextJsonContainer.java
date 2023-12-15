@@ -9,4 +9,5 @@ public class TextJsonContainer extends JsonContainerAdapter {
     public String body() {
         return body;
     }
+    
 }

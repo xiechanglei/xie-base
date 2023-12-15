@@ -6,7 +6,7 @@
 <dependency>
     <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-common-async</artifactId>
-    <version>2.7.17.2</version>
+    <version>2.7.17.3</version>
 </dependency>
 ```
 
@@ -36,7 +36,7 @@ public class Test {
         String requestId = "testkey"; // 这里是唯一的requestId
         //模拟异步请求
         new Thread(() -> lockAsyncMessageProducer.put(requestId, "hello world")).start();
-        String result = lockAsyncMessageProducer.wait(requestId, 30 * 1000);
+        String result = lockAsyncMessageProducer.await(requestId, 30 * 1000);
         System.out.println(result);
     }
 }
@@ -50,7 +50,7 @@ ublic class Test {
         String requestId = "testkey"; // 这里是唯一的requestId
         //模拟异步请求
         new Thread(() -> GlobalLockAsyncMessage.put(requestId, "hello world")).start();
-        String result = GlobalLockAsyncMessage.wait(requestId, 30 * 1000);
+        String result = GlobalLockAsyncMessage.await(requestId, 30 * 1000);
         System.out.println(result);
     }
 }
