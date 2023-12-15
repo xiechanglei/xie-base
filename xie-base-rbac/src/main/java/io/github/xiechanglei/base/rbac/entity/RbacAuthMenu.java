@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "rbac_auth_menu")
 @NoArgsConstructor
-public class RbacAuthMenu implements BaseEntity {
+public class RbacAuthMenu {
     @Id
     @Column(length = 100, columnDefinition = "varchar(100) comment '物理主键'")
     private String id;

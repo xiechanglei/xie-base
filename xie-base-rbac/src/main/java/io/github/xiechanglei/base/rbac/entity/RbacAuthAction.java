@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Setter
 @Table(name = "rbac_auth_action")
 @NoArgsConstructor
-public class RbacAuthAction implements BaseEntity {
+public class RbacAuthAction  {
     @Id
     @Column(length = 100, nullable = false, columnDefinition = "varchar(100) comment '物理主键,操作码，唯一，不可修改'")
     private String actionCode;
