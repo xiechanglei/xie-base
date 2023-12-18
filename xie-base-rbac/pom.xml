@@ -44,6 +44,10 @@
             <artifactId>xie-base-common-jpa</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.github.xiechanglei</groupId>
+            <artifactId>xie-base-common-function</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
@@ -54,7 +58,7 @@
         <dependency>
             <groupId>javax.interceptor</groupId>
             <artifactId>javax.interceptor-api</artifactId>
-            <version>1.2</version>
+            <version>1.2.2</version>
         </dependency>
     </dependencies>
 </project>
