@@ -20,7 +20,7 @@ HTTP请求工具类，用于发送HTTP请求。
 // 构建请求终端
 HttpRequest request = HttpHelper.build()
 // 模拟浏览器请求终端
-HttpRequest request = HttpHelper.build().buildBrowserClient();
+HttpRequest request = HttpHelper.buildBrowserClient();
 // 添加请求参数
 request.transfer(t -> t.param("name", "张三").header("age", 18).cookie("c1",""));
 // 发送请求
