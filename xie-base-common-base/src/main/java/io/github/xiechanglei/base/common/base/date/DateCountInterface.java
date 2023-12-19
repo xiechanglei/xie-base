@@ -1,6 +1,5 @@
 package io.github.xiechanglei.base.common.base.date;
 
-import com.sun.istack.internal.NotNull;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,7 +20,6 @@ public class DateCountInterface extends DateBuilderInterface {
     /**
      * 获取两个日期之间的所有日期(天),包括起始日期和结束日期
      */
-    @NotNull
     public static List<Date> getDatesBetween(Date d1, Date d2) {
         List<Date> dates = new ArrayList<>();
         Date start = d1, end = d2;
@@ -45,7 +43,6 @@ public class DateCountInterface extends DateBuilderInterface {
     /**
      * 获取两个日期之间的所有小时,包括起始日期和结束日期
      */
-    @NotNull
     public static List<Date> getHoursBetween(Date d1, Date d2) {
         List<Date> dates = new ArrayList<>();
         Date start = d1, end = d2;
@@ -71,7 +68,6 @@ public class DateCountInterface extends DateBuilderInterface {
     /**
      * 获取两个日期之间所有的分钟
      */
-    @NotNull
     public static List<Date> getMinutesBetween(Date d1, Date d2) {
         List<Date> dates = new ArrayList<>();
         Date start = d1, end = d2;
@@ -95,7 +91,6 @@ public class DateCountInterface extends DateBuilderInterface {
     /**
      * 获取两个日期之间所有的秒
      */
-    @NotNull
     public static List<Date> getSecondsBetween(Date d1, Date d2) {
         List<Date> dates = new ArrayList<>();
         Date start = d1, end = d2;
@@ -107,10 +102,6 @@ public class DateCountInterface extends DateBuilderInterface {
             dates.add(afterSeconds(start, i));
         }
         return dates;
-    }
-
-    public static void main(String[] args) {
-        getDatesBetween(new Date(), afterDays(100)).stream().map(DateHelper::format).forEach(System.out::println);
     }
 
 }
