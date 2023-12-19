@@ -1,4 +1,4 @@
-package io.github.xiechanglei.base.common.digest.bytecode;
+package io.github.xiechanglei.base.common.base.bytecode;
 
 /**
  * 字节数组工具类
@@ -83,6 +83,9 @@ public class ByteArrayHelper {
         return true;
     }
 
+    /**
+     * 通常是2个字节
+     */
     public static short toShort(byte[] bytes) {
         if (bytes == null || bytes.length == 0) {
             return 0;
@@ -95,7 +98,7 @@ public class ByteArrayHelper {
     }
 
     /**
-     * 将字节数组转换为int
+     * 将字节数组转换为int，通常是4个字节
      */
     public static int toInt(byte[] bytes) {
         if (bytes == null || bytes.length == 0) {
@@ -110,7 +113,7 @@ public class ByteArrayHelper {
 
 
     /**
-     * 将字节数组转换为long
+     * 将字节数组转换为long，通常是8个字节
      */
     public static long toLong(byte[] bytes) {
         if (bytes == null || bytes.length == 0) {
@@ -124,21 +127,29 @@ public class ByteArrayHelper {
     }
 
 
+    /**
+     * 将short转换为字节数组
+     */
     public static byte[] fromShort(short value) {
         return new byte[]{(byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF)};
     }
 
+    /**
+     * 将int转换为字节数组
+     */
     public static byte[] fromInt(int value) {
         return new byte[]{(byte) ((value >> 24) & 0xFF), (byte) ((value >> 16) & 0xFF), (byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF)};
     }
 
-
+    /**
+     * 将long转换为字节数组
+     */
     public static byte[] fromLong(long value) {
         return new byte[]{(byte) ((value >> 56) & 0xFF), (byte) ((value >> 48) & 0xFF), (byte) ((value >> 40) & 0xFF), (byte) ((value >> 32) & 0xFF), (byte) ((value >> 24) & 0xFF), (byte) ((value >> 16) & 0xFF), (byte) ((value >> 8) & 0xFF), (byte) (value & 0xFF)};
     }
 
     /**
-     * 合并
+     * 合并两个字节数组
      */
     public static byte[] merge(byte[]... bytes) {
         int length = 0;

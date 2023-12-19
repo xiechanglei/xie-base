@@ -9,7 +9,7 @@
 <dependency>
     <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-common-bean</artifactId>
-    <version>2.7.17.3</version>
+    <version>2.7.17.4</version>
 </dependency>
 ```
 

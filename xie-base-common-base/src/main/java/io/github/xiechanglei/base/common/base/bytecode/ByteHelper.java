@@ -1,4 +1,4 @@
-package io.github.xiechanglei.base.common.digest.bytecode;
+package io.github.xiechanglei.base.common.base.bytecode;
 
 /**
  * 字节工具类
@@ -14,6 +14,9 @@ public class ByteHelper {
         return (byte) Integer.parseInt(hexString, 16);
     }
 
+    /**
+     * 将byte转换为16进制字符串
+     */
     public static String toHexString(byte b) {
         return String.format("%02X", b);
     }

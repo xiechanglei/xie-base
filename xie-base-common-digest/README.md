@@ -8,7 +8,7 @@
 <dependency>
     <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-common-digest</artifactId>
-    <version>2.7.17.3</version>
+    <version>2.7.17.4</version>
 </dependency>
 ```
 
@@ -58,26 +58,4 @@ crc32.update("helloworld1".getBytes());
 crc32.update("helloworld2".getBytes());
 crc32.getValue();
 crc32.getValueToByteArray();
-```
-
-### ByteHelper, ByteArrayHelper
-
-```java
-// 16进制字符串转换为byte
-byte b = ByteHelper.of("ff");
-// byte转换为16进制字符串
-String hex = ByteHelper.toHexString(b);
-```
-
-```java
-// int数字转byte数组
-byte[] arr = ByteArrayHelper.of(100,200,300,400);
-byte[] arr = ByteArrayHelper.of(0x11,0x22,0x33,0x44);
-// 16进制字符串转换为byte数组
-byte[] arr = ByteArrayHelper.of("11223344");
-byte[] arr = ByteArrayHelper.of("11 22 33 44");
-// byte[] 转换为16进制字符串
-String hex = ByteArrayHelper.toHexString(arr);
-String hex = ByteArrayHelper.toHexString(arr,30);//从数组的第一个元素开始，转换30个
-String hex = ByteArrayHelper.toHexString(arr,0,30); //从数组的第一个元素开始，转换30个
 ```

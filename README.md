@@ -1,10 +1,10 @@
-# xie-base ![](https://img.shields.io/badge/license-Apache2.0-blue) ![](https://img.shields.io/badge/version-2.7.17.3-green) ![](https://img.shields.io/badge/java-jdk8-green) ![](https://img.shields.io/badge/springboot-2.7.17-green)
+# xie-base ![](https://img.shields.io/badge/license-Apache2.0-blue) ![](https://img.shields.io/badge/version-2.7.17.4-green) ![](https://img.shields.io/badge/java-jdk8-green) ![](https://img.shields.io/badge/springboot-2.7.17-green)
 
 ## 1. 介绍
 
 `xie-base` 是一个基础工具类模块，提供了一些基础的工具类，以及一些通用的项目脚手架，
 
-版本规则是 springboot 的版本号 + 自定义版本号，如：`2.7.17.3` 表示的是基于 springboot 2.7.17 的第2个版本。
+版本规则是 springboot 的版本号 + 自定义版本号，如：`2.7.17.4` 表示的是基于 springboot 2.7.17 的第2个版本。
 
 ## 2. 使用
 
@@ -14,7 +14,7 @@
 <dependency>
     <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-common-json</artifactId>
-    <version>2.7.17.3</version>
+    <version>2.7.17.4</version>
 </dependency>
 ```
 
@@ -24,7 +24,7 @@ xie-base 依然是一个spring boot的子模块，你可以替换掉spring boot�
 <parent>
     <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base</artifactId>
-    <version>2.7.17.3</version>
+    <version>2.7.17.4</version>
 </parent>
 
 <dependencies>
@@ -52,6 +52,7 @@ xie-base 依然是一个spring boot的子模块，你可以替换掉spring boot�
 - [x] [xie-base-common-json](./xie-base-common-json/README.md)
 - [x] [xie-base-common-reflect](./xie-base-common-reflect/README.md)
 - [x] [xie-base-common-function](./xie-base-common-function/README.md)
+- [x] [xie-base-common-base](./xie-base-common-base/README.md)
 - [x] [xie-base-common](./xie-base-common/README.md)
 - [x] [xie-base-netty](./xie-base-netty/README.md)
 - [x] [xie-base-rbac](./xie-base-rbac/README.md)

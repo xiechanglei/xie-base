@@ -35,6 +35,10 @@
             <groupId>io.github.xiechanglei</groupId>
             <artifactId>xie-base-common-bean</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.xiechanglei</groupId>
+            <artifactId>xie-base-common-base</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

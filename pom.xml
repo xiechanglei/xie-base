@@ -14,7 +14,7 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <revision>2.7.17.3</revision>
+        <revision>2.7.17.4</revision>
 
         <gpg.passphrase>1234!@#$</gpg.passphrase>
         <gpg.keyname>613BBEB009739C46518A00F3D11490B5678C19D5</gpg.keyname>
@@ -73,6 +73,7 @@
         <module>xie-base-common-json</module>
         <module>xie-base-common-async</module>
         <module>xie-base-common-function</module>
+        <module>xie-base-common-base</module>
         <module>xie-base-common</module>
         <module>xie-base-rbac</module>
         <module>xie-base-web</module>
@@ -123,6 +124,11 @@
             <dependency>
                 <groupId>io.github.xiechanglei</groupId>
                 <artifactId>xie-base-common-function</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.xiechanglei</groupId>
+                <artifactId>xie-base-common-base</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>

@@ -12,7 +12,7 @@
 <dependency>
     <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-web</artifactId>
-    <version>2.7.17.3</version>
+    <version>2.7.17.4</version>
 </dependency>
 ```
 
@@ -129,4 +129,10 @@ io.github.xiechanglei.base.web.exception-advice=false
 默认已经开启了跨域配置，如果需要关闭此功能，可以使用以下配置:
 ```properties
 io.github.xiechanglei.base.web.cors=false
+```
+跨域配置的默认值如下,可以自行修改：
+```properties
+io.github.xiechanglei.base.web.cross-headers=*
+io.github.xiechanglei.base.web.cross-origins=*
+io.github.xiechanglei.base.web.cross-headers=your-header
 ```

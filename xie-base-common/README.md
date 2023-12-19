@@ -5,7 +5,7 @@
 <dependency>
     <groupId>io.github.xiechanglei</groupId>
     <artifactId>xie-base-common</artifactId>
-    <version>2.7.17.3</version>
+    <version>2.7.17.4</version>
 </dependency>
 ```
 
@@ -19,3 +19,4 @@
 - [x] [xie-base-common-json](../xie-base-common-json/README.md)
 - [x] [xie-base-common-reflect](../xie-base-common-reflect/README.md)
 - [x] [xie-base-common-function](../xie-base-common-function/README.md)
+- [x] [xie-base-common-base](../xie-base-common-base/README.md)

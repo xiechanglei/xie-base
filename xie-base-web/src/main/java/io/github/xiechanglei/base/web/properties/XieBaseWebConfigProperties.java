@@ -18,4 +18,7 @@ public class XieBaseWebConfigProperties {
     private boolean useDateResolver = true; // 是否开启日期解析器
     private boolean usePageResolver = true; // 是否开启分页解析器
     private boolean cors = true; // 是否开启跨域
+    private String[] crossOrigins = new String[]{"*"}; // 跨域的域名
+    private String[] crossMethods = new String[]{"*"}; // 跨域的方法
+    private String[] crossHeaders = new String[]{}; // 跨域的请求头
 }
