@@ -1,4 +1,4 @@
-# xie-base-common-jpa JPA 模块
+# xie-base-common-jpa
 
 `xie-base-common-jpa` 模块是 `xie-base` 项目的子模块，主要用于提供一些通用的JPA工具类。
 

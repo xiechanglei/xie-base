@@ -1,4 +1,4 @@
-# xie-base-common-bean BEAN 模块
+# xie-base-common-bean
 
 `xie-base-common-bean` 模块是 `xie-base` 项目的子模块，主要用于提供一些通用的 `Bean` 对象。
 

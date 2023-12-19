@@ -1,4 +1,4 @@
-# xie-base-rbac rbac 模块
+# xie-base-rbac
 
 ## 1. 介绍
 

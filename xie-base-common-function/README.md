@@ -1,4 +1,4 @@
-# xie-base-common-bean BEAN 模块
+# xie-base-common-function
 
 函数式编程相关的工具类
 

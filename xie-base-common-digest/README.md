@@ -1,4 +1,4 @@
-# xie-base-common-digest DIGEST 模块
+# xie-base-common-digest
 
 `xie-base-common-digest` 模块是 `xie-base` 项目的子模块，主要用于提供一些通用的加密和摘要算法。
 
