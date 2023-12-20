@@ -16,7 +16,6 @@ public class NettyClientBuilder {
                               int port,
                               ChannelType channelType,
                               Class<? extends Channel> channelClass,
-                              NettyConfigBuilder configBuilder,
                               ChannelInitializer<SocketChannel> channelInitializer) throws Exception {
         Bootstrap bootstrap = new Bootstrap();
         try {
@@ -27,9 +26,6 @@ public class NettyClientBuilder {
             bootstrap.option(ChannelOption.TCP_NODELAY, true);
             bootstrap.option(ChannelOption.SO_REUSEADDR, true);
             bootstrap.handler(channelInitializer);
-            if (configBuilder != null) {
-                configBuilder.config(bootstrap);
-            }
             ChannelFuture future = bootstrap.connect(server, port).sync();
             future.channel().closeFuture().sync();
             throw new InterruptedException();

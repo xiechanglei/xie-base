@@ -53,5 +53,34 @@ public class MyNettyServer implements SimpleChannelInboundHandler<String> {
 ByteBuf 工具类
 
 ```java
-byte[]bytes=ByteBufferHelper.readBytes(buf,100);
+byte[] bytes=ByteBufferHelper.readBytes(buf,100);
+```
+
+### NettyTcpProxy
+tcp代理
+```java
+@NettyTcpProxy(remoteHost = "127.0.0.1", remotePort = 3306, localPort = 3307)
+public class TcpProxy {
+    //在3306端口启动tcp服务，转发到127.0.0.1 的 3306端口
+}
+```
+
+如果你需要对数据进行一些处理：
+```java
+
+@NettyTcpProxy(remoteHost = "127.0.0.1", remotePort = 3306, localPort = 3307)
+public class TcpProxy implements ProxyHandler {
+    @Override
+    public byte[] convertSend(byte[] source) {
+        //处理发送给服务端的数据
+        System.out.println(source.length);
+        return source;
+    }
+    @Override
+    public byte[] convertReceived(byte[] source) {
+        //处理发送给客户端的数据
+        System.out.println(source.length);
+        return source;
+    }
+}
 ```

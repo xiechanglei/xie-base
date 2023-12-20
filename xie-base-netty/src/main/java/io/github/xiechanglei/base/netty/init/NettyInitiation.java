@@ -2,9 +2,12 @@ package io.github.xiechanglei.base.netty.init;
 
 import io.github.xiechanglei.base.netty.annotation.NettyClient;
 import io.github.xiechanglei.base.netty.annotation.NettyServer;
+import io.github.xiechanglei.base.netty.annotation.NettyTcpProxy;
+import io.github.xiechanglei.base.netty.codec.ByteCodec;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -33,7 +36,7 @@ public class NettyInitiation implements ApplicationContextAware {
                         //下面的代码会阻塞，所以放在单独的线程中执行
                         NettyServerBuilder.create(nettyServer.port(), nettyServer.channelClass(), nettyServer.bossThreadCount(), nettyServer.workerThreadCount(), new ChannelInitializer<SocketChannel>() {
                             @Override
-                            protected void initChannel(SocketChannel ch){
+                            protected void initChannel(SocketChannel ch) {
                                 getChannelHandlers(nettyServer.handler()).forEach(ch.pipeline()::addLast);
                                 ch.pipeline().addLast((ChannelHandler) v);
                             }
@@ -62,13 +65,12 @@ public class NettyInitiation implements ApplicationContextAware {
             try {
                 NettyClient nettyClient = v.getClass().getAnnotation(NettyClient.class);
                 log.info("创建Netty客户端,服务器:{},端口:{}", nettyClient.server(), nettyClient.port());
-                NettyConfigBuilder nettyConfigBuilder = getNettyConfigBuilder(nettyClient.configBuilder(), applicationContext);
                 while (true) {
                     try {
                         //下面的代码会阻塞，所以放在单独的线程中执行
-                        NettyClientBuilder.create(nettyClient.server(), nettyClient.port(), nettyClient.channelType(), nettyClient.channelClass(), nettyConfigBuilder,new ChannelInitializer<SocketChannel>() {
+                        NettyClientBuilder.create(nettyClient.server(), nettyClient.port(), nettyClient.channelType(), nettyClient.channelClass(), new ChannelInitializer<SocketChannel>() {
                             @Override
-                            protected void initChannel(SocketChannel ch){
+                            protected void initChannel(SocketChannel ch) {
                                 getChannelHandlers(nettyClient.handler()).forEach(ch.pipeline()::addLast);
                                 ch.pipeline().addLast((ChannelHandler) v);
                             }
@@ -92,29 +94,17 @@ public class NettyInitiation implements ApplicationContextAware {
         }).start());
     }
 
-    public NettyConfigBuilder getNettyConfigBuilder(Class<? extends NettyConfigBuilder> builderClass, ApplicationContext applicationContext)
-            throws InstantiationException, IllegalAccessException {
-        NettyConfigBuilder bean = null;
-        try {
-            // 尝试从spring容器中获取
-            bean = applicationContext.getBean(builderClass);
-        } catch (Exception ignored) {
-            log.info("未找到NettyConfigBuilder的实现类,使用默认实现类:{}", builderClass.getName());
-        }
-        if (bean == null && builderClass != NettyConfigBuilder.class) {
-            bean = builderClass.newInstance();
-        }
 
-        return bean;
-    }
-
-
+    /**
+     * 获取ChannelHandler,这里只是简单的实例化，没有做其他处理
+     */
     public List<ChannelHandler> getChannelHandlers(Class<?>... handlerClasses) {
         List<ChannelHandler> handlers = new ArrayList<>();
         for (Class<?> hClass : handlerClasses) {
             try {
                 handlers.add((ChannelHandler) hClass.newInstance());
-            }catch (Exception ignored){}
+            } catch (Exception ignored) {
+            }
         }
         return handlers;
     }
