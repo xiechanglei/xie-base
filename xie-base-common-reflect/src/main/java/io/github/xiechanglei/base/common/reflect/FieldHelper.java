@@ -7,18 +7,16 @@ import java.lang.reflect.Field;
  */
 public class FieldHelper {
     /**
-     * 判断字段是否有注解
-     * @param field 字段
-     * @param annotationClass 注解类
-     * @return 是否有注解
+     * 获取字段的值
      */
-    public static boolean hasAnnotation(Field field, Class<?>... annotationClass) {
-        for (Class aClass : annotationClass) {
-            if (field.getAnnotation(aClass) != null) {
-                return true;
-            }
+    public static Object getValue(Object obj, String fieldName) {
+        try {
+            Field declaredField = obj.getClass().getDeclaredField(fieldName);
+            declaredField.setAccessible(true);
+            return declaredField.get(obj);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            return null;
         }
-        return false;
     }
 
 }

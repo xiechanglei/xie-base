@@ -23,7 +23,7 @@ public class RbacConfigProperties {
 
     private boolean auto = true;//是否自动维护权限数据
 
-    private boolean useController = false;//是否使用controller层的注解
+    private boolean useController = true;//是否使用controller层的注解
 
 
     @PostConstruct

@@ -17,7 +17,7 @@
         </dependency>
         <dependency>
             <groupId>io.github.xiechanglei</groupId>
-            <artifactId>xie-base-common-base</artifactId>
+            <artifactId>xie-base-common-http</artifactId>
         </dependency>
     </dependencies>
 </project>
